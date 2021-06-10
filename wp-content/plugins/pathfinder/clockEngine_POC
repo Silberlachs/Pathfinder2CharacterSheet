@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * clockEngine
+ *
+ * @package           PluginPackage
+ * @author            clockw0rk
+ * @copyright         clockw0rk
+ * @license           GPL-2.0-or-later
+ *
+ * @wordpress-plugin
+ * Plugin Name:       clockEngine
+ * Plugin URI:        http://clockwork.ddnss.org
+ * Description:       work in Progress PE-FileReader
+ * Version:           First Albatros
+ * Requires at least: 5.6
+ * Requires PHP:      8.0
+ * Author:            Patrick Wollner
+ * Author URI:        http://clockwork.ddnss.org
+ * Text Domain:       plugin-slug
+ * License:           GPL v2 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ */
+
+// [bartag foo="foo-value"]
+
+
+//first output echod, first shown onscreen
+
+
+function test():void
+{
+    echo "test";
+}
+
+
+
+function bartag_func( $atts ) :string
+{
+    $a = shortcode_atts( array(
+        'foo' => 'something',
+        'bar' => 'something else',
+    ), $atts );
+    test();
+    return "foo = {$a['foo']}";
+}
+add_shortcode( 'bartag', 'bartag_func' );
+
+?>

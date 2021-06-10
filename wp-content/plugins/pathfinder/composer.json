@@ -1,0 +1,13 @@
+{
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pathfinder\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {"projectTests\\":  "tests/"}
+  }
+}
