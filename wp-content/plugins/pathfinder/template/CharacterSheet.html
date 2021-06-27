@@ -3,42 +3,49 @@
 <div>Class: Test</div>
 <div>Proficiency Bonus: {{proficiency_bonus}}</div>
 
-<div id="attributes">
-    <div class="ability">
-        Strength
-        <h2>{{strength_score}}</h2>
-        {{strength_modifier}}
-    </div>
-    <div class="ability">
-        Dexterity
-        <h2>{{dexterity_score}}</h2>
-        {{dexterity_modifier}}
-    </div>
-    <div class="ability">
-        Constitution
-        <h2>{{constitution_score}}</h2>
-        {{constitution_modifier}}
-    </div>
-    <div class="ability">
-        Intelligence
-        <h2>{{intelligence_score}}</h2>
-        {{intelligence_modifier}}
-    </div>
-    <div class="ability">
-        Wisdom
-        <h2>{{wisdom_score}}</h2>
-        {{wisdom_modifier}}
-    </div>
-    <div class="ability">
-        Charisma
-        <h2>{{charisma_score}}</h2>
-        {{charisma_modifier}}
+<div id="upper_block">
+        <div class="ability">
+            Strength
+            <h2>{{strength_score}}</h2>
+            {{strength_modifier}}
+        </div>
+        <div class="ability">
+            Dexterity
+            <h2>{{dexterity_score}}</h2>
+            {{dexterity_modifier}}
+        </div>
+        <div class="ability">
+            Constitution
+            <h2>{{constitution_score}}</h2>
+            {{constitution_modifier}}
+        </div>
+        <div class="ability">
+            Intelligence
+            <h2>{{intelligence_score}}</h2>
+            {{intelligence_modifier}}
+        </div>
+        <div class="ability">
+            Wisdom
+            <h2>{{wisdom_score}}</h2>
+            {{wisdom_modifier}}
+        </div>
+        <div class="ability">
+            Charisma
+            <h2>{{charisma_score}}</h2>
+            {{charisma_modifier}}
+        </div>
+
+    <div id="additional_info">
+        <div id="proficiency">Proficiency</div>
+        <div id="armorClass">Armor Class</div>
+        <div id="speed">Speed</div>
     </div>
 </div>
 
-<div id="saving_throws">{{saving_throws}}</div>
-<div id="resistances">{{resistances}}</div>
-<div id="status_alignments">{{status_alignments}}</div>
-
+<div id="second_block">
+    <div id="saving_throws">{{saving_throws}}</div>
+    <div id="resistances">{{resistances}}</div>
+    <div id="status_alignments">{{status_alignments}}</div>
+</div>
 
 <div id="skills">{{Skills}}</div>

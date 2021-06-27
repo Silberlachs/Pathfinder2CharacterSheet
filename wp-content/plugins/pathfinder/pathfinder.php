@@ -45,23 +45,13 @@ function charactersheet_function($atts): string
 function load_scripts_and_styles() {
     wp_register_style( 'charactersheet', plugins_url( 'pathfinder/css/charactersheet.css' ));
     wp_enqueue_style( 'charactersheet' );
+
+    //TODO: make mobile
+    wp_register_style( 'page_settings_desktop', plugins_url( 'pathfinder/css/pageSettings_desktop.css' ));
+    wp_enqueue_style( 'page_settings_desktop' );
     //wp_enqueue_script( 'namespaceformyscript', 'http://locationofscript.com/myscript.js', array( 'jquery' ) );
 }
 add_action('init', 'load_scripts_and_styles');
 add_shortcode('charactersheet', 'charactersheet_function');
-
-/*
-The wp_enqueue_scripts action will set things up for the "frontend".
-You can use the admin_enqueue_scripts action for the backend (anywhere within wp-admin)
-and the login_enqueue_scripts action for the login page.
-
-change size of content only for custom page (under appearance in backend) :
-
-.page-id-150 #primary
-{
-	min-width: 100%;
-}
-
-*/
 
 ?>

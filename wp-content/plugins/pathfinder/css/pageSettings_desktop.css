@@ -1,0 +1,9 @@
+.page-id-150 #primary
+{
+    min-width: 150%;
+}
+
+.page-id-150 .wrap
+{
+    margin-left: 100px;
+}
