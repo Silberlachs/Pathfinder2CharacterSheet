@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Pathfinder\Character\AbilityScores;
-
 
 class Ability implements AbilityScoreInterface
 {
     private int $score;
-    private array $modifiers = [];
+    private array $boni = [];
 
     public function __construct(int $baseValue)
     {
@@ -17,35 +15,40 @@ class Ability implements AbilityScoreInterface
     private function _calculateModifiers():int
     {
         $retVal = 0;
-        foreach ($this->modifiers as $modifier)
+        foreach ($this->boni as $bonus)
         {
-            $retVal += $modifier[1];
+            $retVal += $bonus[1];
         }
         return $retVal;
     }
 
     public function addModifier(string $name, int $score):void
     {
-        $this->modifiers[] = [$name,$score];
+        $this->boni[] = [$name,$score];
     }
 
     public function getScore():int
     {
-        return $this->score + $this->_calculateModifiers();
+        return $this->score;
+    }
+
+    public function getAbilityModifier(): int
+    {
+        return -5 + round($this->score/2,0,PHP_ROUND_HALF_DOWN) + $this->_calculateModifiers();
     }
 
     public function listModifiers(): array
     {
-        return $this->modifiers;
+        return $this->boni;
     }
 
     public function removeModifier(string $name): void
     {
-        for($i = 0; $i < sizeof($this->modifiers); $i+=1)
+        for($i = 0; $i < sizeof($this->boni); $i+=1)
         {
-            if($this->modifiers[$i][0] === $name)
+            if($this->boni[$i][0] === $name)
             {
-                unset($this->modifiers[$i]);
+                unset($this->boni[$i]);
                 return;
             }
         }

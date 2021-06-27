@@ -10,4 +10,5 @@ interface AbilityScoreInterface
     public function listModifiers(): array;
     public function removeModifier(string $name):void;
     public function getScore():int;
+    public function getAbilityModifier(): int;
 }

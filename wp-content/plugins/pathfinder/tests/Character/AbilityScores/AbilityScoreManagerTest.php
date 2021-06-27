@@ -34,11 +34,17 @@ class AbilityScoreManagerTest extends TestCase
         $this->assertEquals([['oger krafthandschuhe',4]], $modifiers);
 
         //calculate modified abilityscore
-        $this->assertEquals(14, $this->abilityScoreManager->getStrength()->getScore());
+        $this->assertEquals(4, $this->abilityScoreManager->getStrength()->getAbilityModifier());
 
         //remove modifier
         $this->abilityScoreManager->getStrength()->removeModifier('oger krafthandschuhe');
         $modifiers = $this->abilityScoreManager->getStrength()->listModifiers();
         $this->assertEquals([], $modifiers);
     }
+
+    public function testAbilityGetScore():void
+    {
+        $this->assertEquals(10, $this->abilityScoreManager->getStrength()->getScore());
+    }
+
 }

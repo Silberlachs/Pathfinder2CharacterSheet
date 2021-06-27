@@ -26,6 +26,11 @@ class PageRenderer
         $this->templateLoader->replaceSkillList($skills);
     }
 
+    public function loadSavingThrows(array $savingThrows):void
+    {
+        $this->templateLoader->replaceSavingThrows($savingThrows);
+    }
+
     public function renderPage():string
     {
         return $this->templateLoader->getTemplate();

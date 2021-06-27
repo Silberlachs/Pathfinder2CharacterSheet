@@ -77,8 +77,8 @@ class SkillRenderer
     private function addProficiencyAndRollbutton(mixed $skill): string
     {
         $proficiencyAndButton = '<div class="skill_roll">';
-        $proficiencyAndButton .= '(' . $skill->getProficiency()->getProficiencyGrade() . ')';
-        $proficiencyAndButton .= '<div class="skill_roll_button">roll</div>';
+        $proficiencyAndButton .= $skill->getProficiency()->getProficiencyGrade();
+        $proficiencyAndButton .= '<div class="roll_button">roll</div>';
         $proficiencyAndButton .= '</div>';
         $proficiencyAndButton .= '</div>';
         return $proficiencyAndButton;

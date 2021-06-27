@@ -36,6 +36,7 @@ function charactersheet_function($atts): string
     $pageRenderer->loadCharacterDetails([$character->getProficiencyBonus()]);
     $pageRenderer->loadAbilityScores($character->getAbilityScores());
     $pageRenderer->loadSkillList($character->getSkillList());
+    $pageRenderer->loadSavingThrows($character->getSavingThrowList());
     echo $pageRenderer->renderPage();
 
     return "";

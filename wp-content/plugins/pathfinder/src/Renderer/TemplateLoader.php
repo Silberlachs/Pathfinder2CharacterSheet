@@ -34,7 +34,7 @@ class TemplateLoader
         $this->replaceCharisma($abilityScores['charisma']);
     }
 
-    public function replaceSkillList(array $skills)
+    public function replaceSkillList(array $skills):void
     {
         $skillRenderer = new SkillRenderer($skills);
         $skillRenderer->buildSkillTable();
@@ -42,13 +42,27 @@ class TemplateLoader
         $this->template = str_replace('{{Skills}}', $skillRenderer->getSkillTable(), $this->template);
     }
 
+    public function replaceSavingThrows(array $savingThrows):void
+    {
+        $replacementString = '';
+        foreach ($savingThrows as $savingThrow)
+        {
+            $replacementString .= "<div class='save_box'>";
+            $replacementString .= "<div class='save'>$savingThrow</div>";
+            $replacementString .= "<div class='saveScore'>" . $savingThrow->getSavingThrowModifier() . "</div>";
+            $replacementString .= "<div class='roll_button'>roll</div>";
+            $replacementString .= '</div>';
+        }
+
+        $this->template = str_replace('{{saving_throws}}', $replacementString, $this->template);
+    }
+
     private function replaceStrength($strength): void
     {
         $this->template = str_replace('{{strength_score}}', $strength->getScore(), $this->template);
         $this->template = str_replace(
             '{{strength_modifier}}',
-            -5 + round(($strength->getScore() / 2),
-                PHP_ROUND_HALF_DOWN), $this->template
+            $strength->getAbilityModifier(), $this->template
         );
     }
 
@@ -57,8 +71,7 @@ class TemplateLoader
         $this->template = str_replace('{{dexterity_score}}', $dexterity->getScore(), $this->template);
         $this->template = str_replace(
             '{{dexterity_modifier}}',
-            -5 + round(($dexterity->getScore() / 2),
-                PHP_ROUND_HALF_DOWN), $this->template
+            $dexterity->getAbilityModifier(), $this->template
         );
     }
 
@@ -67,8 +80,7 @@ class TemplateLoader
         $this->template = str_replace('{{constitution_score}}', $constitution->getScore(), $this->template);
         $this->template = str_replace(
             '{{constitution_modifier}}',
-            -5 + round(($constitution->getScore() / 2),
-                PHP_ROUND_HALF_DOWN), $this->template
+            $constitution->getAbilityModifier(), $this->template
         );
     }
 
@@ -77,8 +89,7 @@ class TemplateLoader
         $this->template = str_replace('{{intelligence_score}}', $intelligence->getScore(), $this->template);
         $this->template = str_replace(
             '{{intelligence_modifier}}',
-            -5 + round(($intelligence->getScore() / 2),
-                PHP_ROUND_HALF_DOWN), $this->template
+            $intelligence->getAbilityModifier(), $this->template
         );
     }
 
@@ -87,8 +98,7 @@ class TemplateLoader
         $this->template = str_replace('{{wisdom_score}}', $wisdom->getScore(), $this->template);
         $this->template = str_replace(
             '{{wisdom_modifier}}',
-            -5 + round(($wisdom->getScore() / 2),
-                PHP_ROUND_HALF_DOWN), $this->template
+            $wisdom->getAbilityModifier(), $this->template
         );
     }
 
@@ -97,8 +107,7 @@ class TemplateLoader
         $this->template = str_replace('{{charisma_score}}', $charisma->getScore(), $this->template);
         $this->template = str_replace(
             '{{charisma_modifier}}',
-            -5 + round(($charisma->getScore() / 2),
-                PHP_ROUND_HALF_DOWN), $this->template
+            $charisma->getAbilityModifier(), $this->template
         );
     }
 
