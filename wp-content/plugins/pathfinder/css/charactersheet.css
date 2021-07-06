@@ -27,7 +27,7 @@
     border: 1px solid white;
     padding: 10px;
     font-size: 10pt;
-    width: 33%;
+    width: 50%;
     float: left;
     height: 120px;
 }
@@ -37,17 +37,7 @@
     border: 1px solid white;
     padding: 10px;
     font-size: 10pt;
-    width: 33%;
-    float: left;
-    height: 120px;
-}
-
-#status_alignments
-{
-    border: 1px solid white;
-    padding: 10px;
-    font-size: 10pt;
-    width: 33%;
+    width: 50%;
     float: left;
     height: 120px;
 }
@@ -132,6 +122,27 @@
     width: 25%;
     float: left;
 }
+
+.resistance
+{
+    width: 100%;
+    display: inline-block;
+}
+
+.resistance_name
+{
+    position: relative;
+    width: 50%;
+    float: left;
+}
+
+.resistance_type
+{
+    position:relative;
+    width: 50%;
+    float: left;
+}
+
 
 .roll_button
 {

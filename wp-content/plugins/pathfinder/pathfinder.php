@@ -12,7 +12,7 @@
  * Plugin Name:       pathfinder2CharacterSheet
  * Plugin URI:        http://clockwork.ddnss.org
  * Description:       online pathfinder2 character sheet and roll20_requests
- * Version:           Albatros-1
+ * Version:           Albatros-3
  * Requires at least: 5.6
  * Requires PHP:      8.0
  * Author:            clockw0rk
@@ -37,6 +37,7 @@ function charactersheet_function($atts): string
     $pageRenderer->loadAbilityScores($character->getAbilityScores());
     $pageRenderer->loadSkillList($character->getSkillList());
     $pageRenderer->loadSavingThrows($character->getSavingThrowList());
+    $pageRenderer->loadResistances($character->getResistances());
     echo $pageRenderer->renderPage();
 
     return "";

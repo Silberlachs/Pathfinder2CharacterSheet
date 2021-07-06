@@ -57,6 +57,20 @@ class TemplateLoader
         $this->template = str_replace('{{saving_throws}}', $replacementString, $this->template);
     }
 
+    public function replaceResistances(array $resistances):void
+    {
+        $replacementString = '';
+        foreach ($resistances as $resistance)
+        {
+            $replacementString .= "<div class='resistance'>";
+            $replacementString .= "<div class='resistance_name'>" .$resistance->getName() ."</div>";
+            $replacementString .= "<div class='resistance_type'>" . $resistance->getType() . "</div>";
+            $replacementString .= '</div>';
+        }
+
+        $this->template = str_replace('{{resistances}}', $replacementString, $this->template);
+    }
+
     private function replaceStrength($strength): void
     {
         $this->template = str_replace('{{strength_score}}', $strength->getScore(), $this->template);

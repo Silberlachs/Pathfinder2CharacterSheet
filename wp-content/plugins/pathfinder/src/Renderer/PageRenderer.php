@@ -31,6 +31,11 @@ class PageRenderer
         $this->templateLoader->replaceSavingThrows($savingThrows);
     }
 
+    public function loadResistances(array $resistances):void
+    {
+        $this->templateLoader->replaceResistances($resistances);
+    }
+
     public function renderPage():string
     {
         return $this->templateLoader->getTemplate();

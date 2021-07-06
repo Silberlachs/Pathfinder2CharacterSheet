@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Pathfinder\tests;
 
 use Pathfinder\Character\AbilityScores\Ability;

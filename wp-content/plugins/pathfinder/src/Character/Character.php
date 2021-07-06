@@ -3,6 +3,8 @@
 namespace Pathfinder\Character;
 
 use Pathfinder\Character\AbilityScores\AbilityScoreManager;
+use Pathfinder\Character\Resistances\Resistance;
+use Pathfinder\Character\Resistances\ResistanceManager;
 use Pathfinder\Character\SavingThrows\SavingThrowManager;
 use Pathfinder\Character\Skills\SkillManager;
 
@@ -11,11 +13,12 @@ class Character
     private AbilityScoreManager $abilityScoreManager;
     private SkillManager $skillManager;
     private SavingThrowManager $savingThrowManager;
+    private ResistanceManager $resistanceManager;
     private int $level;
 
     public function __construct()
     {
-        //race: human
+
         $this->level = 1;
         $this->abilityScoreManager = new AbilityScoreManager(10,10,10,10,10,10);
         $this->skillManager = new SkillManager(__DIR__.'/Skills/skills');
@@ -25,7 +28,10 @@ class Character
             $this->abilityScoreManager->getDexterity(),
             $this->abilityScoreManager->getWisdom()
         );
-
+        $this->resistanceManager = new ResistanceManager();
+        $this->resistanceManager->addResistance(new Resistance('psychic', 'immunity'));
+        $this->resistanceManager->addResistance(new Resistance('test', 'remove in future release'));
+        //TODO: add racial and class boni
     }
 
     public function getAbilityScores():array
@@ -41,6 +47,11 @@ class Character
     public function getSavingThrowList():array
     {
         return $this->savingThrowManager->getSavingThrows();
+    }
+
+    public function getResistances():array
+    {
+        return $this->resistanceManager->getResistances();
     }
 
     public function getProficiencyBonus():int
