@@ -22,7 +22,7 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-//   ./vendor/bin/phpunit tests
+// Start testsuite with  ./vendor/bin/phpunit tests
 require __DIR__ . '/vendor/autoload.php';
 use Pathfinder\Character\Character;
 use Pathfinder\Renderer\PageRenderer;
