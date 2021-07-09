@@ -30,7 +30,7 @@ use Pathfinder\Renderer\TemplateLoader;
 
 function charactersheet_function($atts): string
 {
-    $character = new Character();
+    $character = new Character('testChar');
     $pageRenderer = new PageRenderer(new TemplateLoader(__DIR__ . '/template/CharacterSheet.html'));
 
     $pageRenderer->loadCharacterDetails([$character->getProficiencyBonus()]);

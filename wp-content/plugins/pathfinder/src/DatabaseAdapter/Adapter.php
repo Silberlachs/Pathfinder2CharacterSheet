@@ -3,23 +3,27 @@ declare(strict_types=1);
 
 namespace Pathfinder\DatabaseAdapter;
 
+use Pathfinder\Character\Character;
+
 class Adapter
 {
-    private string $prefix;
-
-    public function __construct(string $characterNamePrefix)
+    public function saveSingleValue(string $name, $value):void
     {
-        $this->prefix = $characterNamePrefix;
-    }
-
-    public function saveSingleValue(string $name, $value)
-    {
-        add_option($this->prefix . $name, $value);
+        add_option($name, $value);
     }
 
     public function loadSingleValue(string $name)
     {
-        return get_option($this->prefix . $name);
+        return get_option($name);
     }
 
+    public function saveCharacter(Character $character):void
+    {
+        add_option($character->getName(), $character);
+    }
+
+    public function loadCharacter(string $characterName):Character
+    {
+        return get_option($characterName);
+    }
 }

@@ -15,11 +15,12 @@ class Character
     private SavingThrowManager $savingThrowManager;
     private ResistanceManager $resistanceManager;
     private int $level;
+    private string $name;
 
-    public function __construct()
+    public function __construct(string $name)
     {
-
         $this->level = 1;
+        $this->name = $name;
         $this->abilityScoreManager = new AbilityScoreManager(10,10,10,10,10,10);
         $this->skillManager = new SkillManager(__DIR__.'/Skills/skills');
         $this->savingThrowManager = new SavingThrowManager
@@ -66,7 +67,7 @@ class Character
 
     public function getName():string
     {
-        return "testName";
+        return $this->name;
     }
 
     public function getRace():string
