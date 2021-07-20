@@ -35,4 +35,20 @@ class AdapterTest extends TestCase
         self::assertEquals($testCharacter->getName(), $char->getName());
     }
 
+    public function testDeleteCharacter()
+    {
+        $testCharacter = new Character('Unittest_Character');
+
+        $this->testAdapter->saveCharacter($testCharacter);
+        $char = $this->testAdapter->loadCharacter($testCharacter->getName());
+        self::assertEquals($testCharacter->getName(), $char->getName());
+
+        $this->testAdapter->deleteCharacter($testCharacter->getName());
+        $charList = $this->testAdapter->listCharacters();
+
+        self::assertFalse($this->testAdapter->loadCharacter($testCharacter->getName()));
+        self::assertNotContains($testCharacter->getName(), $charList);
+
+    }
+
 }
