@@ -71,6 +71,23 @@ class TemplateLoader
         $this->template = str_replace('{{resistances}}', $replacementString, $this->template);
     }
 
+    public function buildCharacterList(array $characterList):void
+    {
+        //TODO: style the damn input type button :/
+        $replacementString = '';
+        foreach ($characterList as $character)
+        {
+            $replacementString .= "<div class='characterBox'>";
+            $replacementString .= "<div class='characterName'>" .$character ."</div>";
+            $replacementString .= "<form method='post' action='http://clockwork.ddnss.org/index.php/character-sheet/'>";
+            $replacementString .= "<button name='loadCharacter' value='".$character."'>load</button>";
+            $replacementString .= "</form>";
+            $replacementString .= '</div>';
+        }
+
+        $this->template = str_replace('{{character_list}}', $replacementString, $this->template);
+    }
+
     private function replaceStrength($strength): void
     {
         $this->template = str_replace('{{strength_score}}', $strength->getScore(), $this->template);

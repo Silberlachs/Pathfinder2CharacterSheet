@@ -7,7 +7,6 @@ use Pathfinder\Character\Character;
 
 class Adapter
 {
-
     public function __construct()
     {
         if(!get_option('characterList'))

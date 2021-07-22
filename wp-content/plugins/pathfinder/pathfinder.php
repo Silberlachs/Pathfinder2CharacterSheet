@@ -12,7 +12,7 @@
  * Plugin Name:       pathfinder2CharacterSheet
  * Plugin URI:        http://clockwork.ddnss.org
  * Description:       online pathfinder2 character sheet and roll20_requests
- * Version:           Albatros-3
+ * Version:           Albatros-4
  * Requires at least: 5.6
  * Requires PHP:      8.0
  * Author:            clockw0rk
@@ -23,36 +23,48 @@
  */
 
 // Start testsuite with  ./vendor/bin/phpunit tests
+use Pathfinder\MainMenu\MainMenuHandler;
+
 require __DIR__ . '/vendor/autoload.php';
-use Pathfinder\Character\Character;
-use Pathfinder\Renderer\PageRenderer;
-use Pathfinder\Renderer\TemplateLoader;
 
-function charactersheet_function($atts): string
+function initialize(): void
 {
-    $character = new Character('testChar');
-    $pageRenderer = new PageRenderer(new TemplateLoader(__DIR__ . '/template/CharacterSheet.html'));
+    if(isset($_POST['loadCharacter']))
+    {
+        (new MainMenuHandler())->loadCharacter(
+                    __DIR__ . '/template/CharacterSheet.html',
+                    htmlspecialchars($_POST['loadCharacter'])
+                    );
+        return;
+    }
 
-    $pageRenderer->loadCharacterDetails([$character->getProficiencyBonus()]);
-    $pageRenderer->loadAbilityScores($character->getAbilityScores());
-    $pageRenderer->loadSkillList($character->getSkillList());
-    $pageRenderer->loadSavingThrows($character->getSavingThrowList());
-    $pageRenderer->loadResistances($character->getResistances());
-    echo $pageRenderer->renderPage();
+    //TODO: implement form to create a new character
+    if(isset($_POST['newChar']))
+    {
+        return;
+    }
 
-    return "";
+    (new MainMenuHandler())->loadMainMenu(__DIR__ . '/template/MainMenu.html');
 }
 
 function load_scripts_and_styles() {
+    //TODO: split css into multiple files
     wp_register_style( 'charactersheet', plugins_url( 'pathfinder/css/charactersheet.css' ));
     wp_enqueue_style( 'charactersheet' );
 
+    wp_register_style( 'main_menu', plugins_url( 'pathfinder/css/main_menu.css' ));
+    wp_enqueue_style( 'main_menu' );
+
     //TODO: make mobile
+    //if(browser = desktop)
     wp_register_style( 'page_settings_desktop', plugins_url( 'pathfinder/css/pageSettings_desktop.css' ));
     wp_enqueue_style( 'page_settings_desktop' );
-    //wp_enqueue_script( 'namespaceformyscript', 'http://locationofscript.com/myscript.js', array( 'jquery' ) );
+
+    //TODO: add scripts
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'MainMenuController', plugins_url('pathfinder/js/MainMenuController.js'));
 }
 add_action('init', 'load_scripts_and_styles');
-add_shortcode('charactersheet', 'charactersheet_function');
+add_shortcode('charactersheet', 'initialize');
 
 ?>

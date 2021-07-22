@@ -42,12 +42,31 @@
     height: 120px;
 }
 
+#proficiency
+{
+    width: 33%;
+    float: left;
+}
+
+#armorClass
+{
+    width: 33%;
+    float: left;
+}
+
+#speed
+{
+    width: 33%;
+    float: left;
+}
+
 #additional_info
 {
     width: 40%;
     height: 100%;
     float:left;
     border: 1px solid white;
+    padding: 10px;
 }
 
 #upper_block

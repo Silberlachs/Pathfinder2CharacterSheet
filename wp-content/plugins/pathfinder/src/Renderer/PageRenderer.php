@@ -36,6 +36,11 @@ class PageRenderer
         $this->templateLoader->replaceResistances($resistances);
     }
 
+    public function loadCharacterList(array $characters):void
+    {
+        $this->templateLoader->buildCharacterList($characters);
+    }
+
     public function renderPage():string
     {
         return $this->templateLoader->getTemplate();
