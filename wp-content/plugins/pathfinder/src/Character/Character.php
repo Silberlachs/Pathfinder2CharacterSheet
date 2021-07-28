@@ -19,8 +19,10 @@ class Character
 
     public function __construct(string $name)
     {
+        //TODO: add parameters from character creation sheet: name, level, race,
         $this->level = 1;
         $this->name = $name;
+        //TODO: add racial and class boni
         $this->abilityScoreManager = new AbilityScoreManager(10,10,10,10,10,10);
         $this->skillManager = new SkillManager(__DIR__.'/Skills/skills');
         $this->savingThrowManager = new SavingThrowManager
@@ -32,7 +34,7 @@ class Character
         $this->resistanceManager = new ResistanceManager();
         $this->resistanceManager->addResistance(new Resistance('psychic', 'immunity'));
         $this->resistanceManager->addResistance(new Resistance('test', 'remove in future release'));
-        //TODO: add racial and class boni
+
     }
 
     public function getAbilityScores():array
