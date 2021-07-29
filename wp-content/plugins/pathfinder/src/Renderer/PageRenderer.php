@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace Pathfinder\Renderer;
 
@@ -14,7 +13,7 @@ class PageRenderer
 
     public function loadCharacterDetails(array $characterDetails):void
     {
-        $this->templateLoader->renderCharacterDetails($characterDetails[0]);
+        $this->templateLoader->renderCharacterDetails((string)$characterDetails[0]);
     }
 
     public function loadAbilityScores(array $abilityScores):void
