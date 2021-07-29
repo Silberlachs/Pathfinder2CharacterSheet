@@ -19,7 +19,7 @@ class TemplateLoader
     }
 
     //TODO: insert char details
-    public function renderCharacterDetails(string $proficiency):void
+    public function replaceCharacterDetails(string $proficiency):void
     {
         $this->template = str_replace('{{proficiency_bonus}}', $proficiency, $this->template);
     }
@@ -39,7 +39,7 @@ class TemplateLoader
         $skillRenderer = new SkillRenderer($skills);
         $skillRenderer->buildSkillTable();
 
-        $this->template = str_replace('{{Skills}}', $skillRenderer->getSkillTable(), $this->template);
+        $this->template = str_replace('{{skills}}', $skillRenderer->getSkillTable(), $this->template);
     }
 
     public function replaceSavingThrows(array $savingThrows):void
@@ -86,6 +86,21 @@ class TemplateLoader
         }
 
         $this->template = str_replace('{{character_list}}', $replacementString, $this->template);
+    }
+
+    public function replaceActionbar($actionsBar): void
+    {
+        $this->template = str_replace('{{action_bar}}', "ActionBar Template", $this->template);
+    }
+
+    public function replaceInventory($inventory): void
+    {
+        $this->template = str_replace('{{inventory}}', "inventory Template", $this->template);
+    }
+
+    public function replaceSpellbook($spellbook): void
+    {
+        $this->template = str_replace('{{spellbook}}', "spellbook Template", $this->template);
     }
 
     private function replaceStrength($strength): void

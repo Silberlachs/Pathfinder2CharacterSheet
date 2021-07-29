@@ -49,6 +49,36 @@
     height: 120px;
 }
 
+#actionBar
+{
+    border: 1px solid white;
+    padding: 10px;
+    font-size: 10pt;
+    width: 60%;
+    float: left;
+    min-height: 120px;
+}
+
+#inventory
+{
+    border: 1px solid white;
+    padding: 10px;
+    font-size: 10pt;
+    width: 30%;
+    float: left;
+    height: 120px;
+}
+
+#spellbook
+{
+    border: 1px solid white;
+    padding: 10px;
+    font-size: 10pt;
+    width: 30%;
+    float: left;
+    height: 120px;
+}
+
 #proficiency
 {
     width: 33%;

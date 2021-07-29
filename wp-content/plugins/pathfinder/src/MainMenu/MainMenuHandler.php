@@ -26,6 +26,9 @@ class MainMenuHandler
         $pageRenderer->loadSkillList($character->getSkillList());
         $pageRenderer->loadSavingThrows($character->getSavingThrowList());
         $pageRenderer->loadResistances($character->getResistances());
+        $pageRenderer->loadActionBar([]);
+        $pageRenderer->loadInventory([]);
+        $pageRenderer->loadSpellbook([]);
         echo $pageRenderer->renderPage();
     }
 

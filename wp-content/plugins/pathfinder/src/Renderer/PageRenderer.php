@@ -13,7 +13,7 @@ class PageRenderer
 
     public function loadCharacterDetails(array $characterDetails):void
     {
-        $this->templateLoader->renderCharacterDetails((string)$characterDetails[0]);
+        $this->templateLoader->replaceCharacterDetails((string)$characterDetails[0]);
     }
 
     public function loadAbilityScores(array $abilityScores):void
@@ -39,6 +39,21 @@ class PageRenderer
     public function loadCharacterList(array $characters):void
     {
         $this->templateLoader->buildCharacterList($characters);
+    }
+
+    public function loadActionBar(array $actions):void
+    {
+        $this->templateLoader->replaceActionbar($actions);
+    }
+
+    public function loadInventory(array $inventory):void
+    {
+        $this->templateLoader->replaceInventory($inventory);
+    }
+
+    public function loadSpellbook(array $spellbook):void
+    {
+        $this->templateLoader->replaceSpellbook($spellbook);
     }
 
     public function renderPage():string
