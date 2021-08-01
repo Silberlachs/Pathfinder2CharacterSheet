@@ -18,6 +18,8 @@ class Weapon extends Item
         else {
             parent::__construct($name, "weapon", $needsAttunement);
         }
+
+        $this->equipable = true;
     }
 
     public function setDamage(string $damage)

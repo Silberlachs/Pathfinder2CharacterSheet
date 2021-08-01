@@ -17,6 +17,8 @@ class Armor extends Item
         else {
             parent::__construct($name, "armor", $needsAttunement);
         }
+
+        $this->equipable = true;
     }
 
     public function setArmorType(string $armorType)

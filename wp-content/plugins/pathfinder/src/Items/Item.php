@@ -6,27 +6,32 @@ namespace Pathfinder\Items;
 
 class Item
 {
-    private string $name;
-    private string $type;
-    private string $rarity;
-    private string $description;
-    private string $flavourtext;
-    private int $price;
-    private int $weight;
-    private int $amount;
-    private bool $eqipped = false;
-    private bool $attuned = false;
-    private bool $needsAttunement = false;
+    protected string $name;
+    protected string $type;
+    protected string $rarity;
+    protected string $description;
+    protected string $flavourtext;
+    protected int $price;
+    protected int $weight;
+    protected int $amount;
+    protected bool $equipped;
+    protected bool $attuned;
+    protected bool $needsAttunement;
+    protected bool $equipable;
 
     public function __construct(string $name, string $type, bool $needsAttunement = false)
     {
         $this->name = $name;
         $this->type = $type;
+        $this->equipped = false;
+        $this->attuned = false;
+        $this->needsAttunement = $needsAttunement;
+        $this->equipable = false;
     }
 
     public function setRarity(string $rarity)
     {
-            $this->rarity = $rarity;
+        $this->rarity = $rarity;
     }
 
     public function setDescription(string $description):void
@@ -54,15 +59,17 @@ class Item
         $this->amount = $amount;
     }
 
-    public function setIsEquiped()
+    public function setIsEquipped():void
     {
-        $this->eqipped ^= true;
+        if($this->equipable) {
+            $this->equipped = !$this->equipped;
+        }
     }
 
-    public function setIsAttuned()
+    public function setIsAttuned():void
     {
         if($this->needsAttunement){
-            $this->attuned ^= true;
+            $this->attuned = !$this->attuned;
         }
     }
 
@@ -108,12 +115,17 @@ class Item
 
     public function getIsEquipped():bool
     {
-        return $this->eqipped;
+        return $this->equipped;
     }
 
     public function getIsAttuned():bool
     {
         return $this->attuned && $this->needsAttunement;
+    }
+
+    public function getIsEquipable():bool
+    {
+        return $this->equipable;
     }
 
     public function needsAttunement():bool

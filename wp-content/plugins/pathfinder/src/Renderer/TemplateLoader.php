@@ -88,14 +88,34 @@ class TemplateLoader
         $this->template = str_replace('{{character_list}}', $replacementString, $this->template);
     }
 
-    public function replaceActionbar($actionsBar): void
+    public function replaceActionbar($actionBar): void
     {
-        $this->template = str_replace('{{action_bar}}', "ActionBar Template", $this->template);
+        $actionBarString = '<p>Action Bar</p>';
+
+        foreach ($actionBar as $itemId => $item)
+        {
+            $actionBarString .= '<div id="' . $itemId . '" class="actionBarItem">';
+            $actionBarString .= $item->getName();
+            $actionBarString .= '<p>'.$item->getDescription().'</p>';
+            $actionBarString .= '</div>';
+        }
+
+        $this->template = str_replace('{{action_bar}}', $actionBarString, $this->template);
     }
 
     public function replaceInventory($inventory): void
     {
-        $this->template = str_replace('{{inventory}}', "inventory Template", $this->template);
+        $inventoryString = '<p>Items in Inventory</p>';
+
+        foreach ($inventory as $itemId => $item)
+        {
+            $inventoryString .= '<div id="' . $itemId . '" class="inventoryItem">';
+            $inventoryString .= $item->getName();
+            $inventoryString .= '<p>'.$item->getDescription().'</p>';
+            $inventoryString .= '</div>';
+        }
+
+        $this->template = str_replace('{{inventory}}', $inventoryString, $this->template);
     }
 
     public function replaceSpellbook($spellbook): void
