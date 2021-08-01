@@ -95,8 +95,9 @@ class TemplateLoader
         foreach ($actionBar as $itemId => $item)
         {
             $actionBarString .= '<div id="' . $itemId . '" class="actionBarItem">';
-            $actionBarString .= $item->getName();
-            $actionBarString .= '<p>'.$item->getDescription().'</p>';
+            $actionBarString .= '<div>' . $item->getName() . '</div>';
+            $actionBarString .= '<div>' . $item->getDamage().' ' . $item->getDamageType() . '</div>';
+            $actionBarString .= "<div class='roll_button'>roll</div>";
             $actionBarString .= '</div>';
         }
 

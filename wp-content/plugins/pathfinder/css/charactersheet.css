@@ -210,3 +210,14 @@
     font-size: 10pt;
     cursor: pointer;
 }
+
+.actionBarItem
+{
+    border: 1px dotted grey;
+    display: inline-flex;
+    flex-grow: 1;
+    flex-direction: column;
+    min-width: 20%;
+    max-width: 20%;
+    padding: 5px;
+}
