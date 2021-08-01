@@ -36,12 +36,12 @@ class Item
 
     public function setDescription(string $description):void
     {
-        $this->description = $description;
+        $this->description = htmlentities($description);
     }
 
     public function setFlavourtext(string $flavourtext):void
     {
-        $this->flavourtext = $flavourtext;
+        $this->flavourtext = htmlentities($flavourtext);
     }
 
     public function setPrice(int $price):void
