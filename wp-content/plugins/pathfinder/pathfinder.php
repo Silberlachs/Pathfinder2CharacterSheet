@@ -38,9 +38,11 @@ function initialize(): void
         return;
     }
 
-    //TODO: implement form to create a new character
     if(isset($_POST['newChar']))
     {
+        (new MainMenuHandler())->createNewCharacter(
+            __DIR__ . '/template/CharacterCreator.html'
+        );
         return;
     }
 

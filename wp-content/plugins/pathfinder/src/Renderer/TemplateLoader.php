@@ -80,7 +80,7 @@ class TemplateLoader
             $replacementString .= "<div class='characterBox'>";
             $replacementString .= "<div class='characterName'>" .$character ."</div>";
             $replacementString .= "<form method='post' action='http://clockwork.ddnss.org/index.php/character-sheet/'>";
-            $replacementString .= "<button name='loadCharacter' value='".$character."'>load</button>";
+            $replacementString .= "<button name='loadCharacter' class='load_character_button' value='".$character."'>load</button>";
             $replacementString .= "</form>";
             $replacementString .= '</div>';
         }

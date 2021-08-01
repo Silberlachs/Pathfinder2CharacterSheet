@@ -40,4 +40,10 @@ class MainMenuHandler
         $pageRenderer->loadCharacterList($characters);
         echo $pageRenderer->renderPage();
     }
+
+    public function createNewCharacter(string $template):void
+    {
+        $pageRenderer = new PageRenderer(new TemplateLoader($template));
+        echo $pageRenderer->renderPage();
+    }
 }
