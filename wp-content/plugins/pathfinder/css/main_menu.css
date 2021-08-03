@@ -1,12 +1,15 @@
-#newCharacter_button
+.creation_button
 {
+    border: 2px solid red;
     margin-bottom: 50px;
+    max-width: 200px;
+    display: inline-flex;
+    margin-left: 15px;
 }
-
-#newChar
+.creation_button  > form::after
 {
-    border: 1px solid red;
-    background: grey;
+    width: auto;
+    display: inline-flex;
 }
 
 .characterBox

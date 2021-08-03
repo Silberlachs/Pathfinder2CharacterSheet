@@ -1,9 +1,21 @@
-<h2>Welcome to pathfinder2 characterManager</h2>
-<div id="newCharacter_button">
+<h3>Pathfinder2 Manager</h3>
+<div class="creation_button">
     <form method='post' action='http://clockwork.ddnss.org/index.php/character-sheet/'>
-        <button id="newChar" name="newChar">new Character</button>
+        <button name="newChar">create Character</button>
     </form>
 </div>
-<div id="welcome">
-{{character_list}}
+
+<div class="creation_button">
+    <form method='post' action='http://clockwork.ddnss.org/index.php/character-sheet/'>
+        <button name="newItem">create Item</button>
+    </form>
 </div>
+
+<div class="creation_button">
+    <form method='post' action='http://clockwork.ddnss.org/index.php/character-sheet/'>
+        <button name="newSpell">create Spell</button>
+    </form>
+</div>
+
+<h3>Load Character</h3>
+<div>{{character_list}}</div>

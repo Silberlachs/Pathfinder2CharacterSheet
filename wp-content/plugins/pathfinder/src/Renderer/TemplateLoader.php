@@ -106,6 +106,7 @@ class TemplateLoader
 
     public function replaceInventory($inventory): void
     {
+        //TODO: ADD OPTION FOR EQUIPPING STUFF (aka move to actionbar)
         $inventoryString = '<p>Items in Inventory</p>';
 
         foreach ($inventory as $itemId => $item)

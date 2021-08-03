@@ -12,7 +12,7 @@
  * Plugin Name:       pathfinder2CharacterSheet
  * Plugin URI:        http://clockwork.ddnss.org
  * Description:       online pathfinder2 character sheet and roll20_requests
- * Version:           Albatros-4
+ * Version:           Albatros-5
  * Requires at least: 5.6
  * Requires PHP:      8.0
  * Author:            clockw0rk
@@ -29,21 +29,31 @@ require __DIR__ . '/vendor/autoload.php';
 
 function initialize(): void
 {
-    if(isset($_POST['loadCharacter']))
-    {
-        (new MainMenuHandler())->loadCharacter(
-                    __DIR__ . '/template/CharacterSheet.html',
-                    htmlspecialchars($_POST['loadCharacter'])
-                    );
+    //TODO: POST INTERPRETER IMPLEMENTIEREN!
+    if(isset($_POST['loadCharacter'])){
+        (new MainMenuHandler())->loadCharacter(__DIR__ . '/template/CharacterSheet.html',htmlspecialchars($_POST['loadCharacter']));
         return;
     }
 
-    if(isset($_POST['newChar']))
-    {
-        (new MainMenuHandler())->createNewCharacter(
-            __DIR__ . '/template/CharacterCreator.html'
-        );
+    if(isset($_POST['newChar'])){
+        (new MainMenuHandler())->createNewCharacter(__DIR__ . '/template/CharacterCreator.html');
         return;
+    }
+
+    if(isset($_POST['newItem'])){
+        (new MainMenuHandler())->createNewCharacter(__DIR__ . '/template/ItemCreator.html');
+        return;
+    }
+
+    if(isset($_POST['newSpell'])){
+        (new MainMenuHandler())->createNewCharacter(__DIR__ . '/template/SpellCreator.html');
+        return;
+    }
+
+    //TODO: add logic for different database_adding via $_POST array
+    if(isset($_POST['add_item'])){
+        //echoing here will be outputted ABOVE main menu (use f.e. like a notification ;)
+        echo $_POST['item_name'];
     }
 
     (new MainMenuHandler())->loadMainMenu(__DIR__ . '/template/MainMenu.html');
@@ -66,6 +76,8 @@ function load_scripts_and_styles() {
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'MainMenuController', plugins_url('pathfinder/js/MainMenuController.js'));
 }
+
+
 add_action('init', 'load_scripts_and_styles');
 add_shortcode('charactersheet', 'initialize');
 
