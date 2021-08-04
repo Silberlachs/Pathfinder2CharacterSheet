@@ -1,11 +1,57 @@
 <h2>ItemCreator</h2>
 
-<form method="post" action="http://clockwork.ddnss.org/index.php/character-sheet/">
+<form method="post" id="itemForm" action="http://clockwork.ddnss.org/index.php/character-sheet/">
 
-    We need to add some css here later!
-    <label>Item name
-        <input type="text" name="item_name"/>
+    <label id="name_field">Item name (*)
+        <input type="text" name="item_name" required/>
     </label>
 
-    <button name="add_item">create Item</button>
+    <label id="type_field">Type (*)
+        <input type="text" name="item_type" required/>
+    </label>
+
+    <label id="amount_field">Amount
+        <input type="number"  name="item_amount" min="0">
+    </label>
+
+    <label id="decription_field">Item Description (*)
+        <textarea name="item_description" rows="4" cols="50" required></textarea>
+    </label>
+
+
+    <div id="options">
+        <label>Rarity (*)
+            <div>
+                <select  name="item_rarity" required>
+                    <option value="common">common</option>
+                    <option value="uncommon">uncommon</option>
+                    <option value="magical">magical</option>
+                    <option value="rare">rare</option>
+                    <option value="legendary">legendary</option>
+                </select>
+            </div>
+        </label>
+
+        <div>
+            <label>Equipable
+                <input type="checkbox" name="item_equipable"/>
+            </label>
+
+            <label>Attunement
+                <input type="checkbox" name="item_attuneable"/>
+            </label>
+        </div>
+    </div>
+
+    <div id="numbers">
+        <label>Worth in gold
+            <input type="number"  name="item_price" min="0">
+        </label>
+
+        <label>Object Weight
+            <input type="number" name="item_weight" min="0">
+        </label>
+    </div>
+
+    <button id="item_submit" name="add_item">create</button>
 </form>

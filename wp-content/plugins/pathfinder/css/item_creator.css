@@ -1,0 +1,54 @@
+#itemForm
+{
+    display: grid;
+    grid-template-columns: 30% 10% 10%;
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+#name_field
+{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#type_field
+{
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#amount_field
+{
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#decription_field
+{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#options
+{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#numbers
+{
+    grid-column: 3;
+    grid-row: 2;
+}
+
+#item_submit
+{
+    grid-column: 3;
+    grid-row: 3;
+    max-height: 60px;
+    background-color: #1d1d1b;
+    color: whitesmoke;
+    text-align: center;
+    border: 2px solid red;
+}

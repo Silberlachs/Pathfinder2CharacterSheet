@@ -10,7 +10,6 @@ class Item
     protected string $type;
     protected string $rarity;
     protected string $description;
-    protected string $flavourtext;
     protected int $price;
     protected int $weight;
     protected int $amount;
@@ -27,6 +26,9 @@ class Item
         $this->attuned = false;
         $this->needsAttunement = $needsAttunement;
         $this->equipable = false;
+        $this->price = 0;
+        $this->weight = 0;
+        $this->amount = 1;
     }
 
     public function setRarity(string $rarity)
@@ -37,11 +39,6 @@ class Item
     public function setDescription(string $description):void
     {
         $this->description = htmlentities($description);
-    }
-
-    public function setFlavourtext(string $flavourtext):void
-    {
-        $this->flavourtext = htmlentities($flavourtext);
     }
 
     public function setPrice(int $price):void
@@ -91,11 +88,6 @@ class Item
     public function getDescription():string
     {
         return $this->description;
-    }
-
-    public function getFlavourtext():string
-    {
-        return $this->flavourtext;
     }
 
     public function getPrice():int

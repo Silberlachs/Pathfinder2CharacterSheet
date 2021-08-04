@@ -11,6 +11,14 @@ class InventoryManager
 
     public function addItem(Item $item):void
     {
+        foreach ($this->inventoryItems as $inventoryItemitem)
+        {
+            if($inventoryItemitem->getName === $item->getName())
+            {
+                $inventoryItemitem->setAmount($inventoryItemitem->getAmount()+1);
+            }
+        }
+
         $this->inventoryItems [$this->itemCounter++] = $item;
     }
 

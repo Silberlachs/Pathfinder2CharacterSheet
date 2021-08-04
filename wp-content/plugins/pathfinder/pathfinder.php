@@ -53,7 +53,7 @@ function initialize(): void
     //TODO: add logic for different database_adding via $_POST array
     if(isset($_POST['add_item'])){
         //echoing here will be outputted ABOVE main menu (use f.e. like a notification ;)
-        echo $_POST['item_name'];
+        echo $_POST['item_rarity'];
     }
 
     (new MainMenuHandler())->loadMainMenu(__DIR__ . '/template/MainMenu.html');
@@ -66,6 +66,9 @@ function load_scripts_and_styles() {
 
     wp_register_style( 'main_menu', plugins_url( 'pathfinder/css/main_menu.css' ));
     wp_enqueue_style( 'main_menu' );
+
+    wp_register_style( 'item_creator', plugins_url( 'pathfinder/css/item_creator.css' ));
+    wp_enqueue_style( 'item_creator' );
 
     //TODO: make mobile
     //if(browser = desktop)
