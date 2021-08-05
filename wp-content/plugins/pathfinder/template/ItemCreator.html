@@ -2,24 +2,24 @@
 
 <form method="post" id="itemForm" action="http://clockwork.ddnss.org/index.php/character-sheet/">
 
-    <label id="name_field">Item name (*)
+    <label id="item_name">Item name (*)
         <input type="text" name="item_name" required/>
     </label>
 
-    <label id="type_field">Type (*)
+    <label id="item_type">Type (*)
         <input type="text" name="item_type" required/>
     </label>
 
-    <label id="amount_field">Amount
+    <label id="item_amount">Amount
         <input type="number"  name="item_amount" min="0">
     </label>
 
-    <label id="decription_field">Item Description (*)
+    <label id="item_description">Item Description (*)
         <textarea name="item_description" rows="4" cols="50" required></textarea>
     </label>
 
 
-    <div id="options">
+    <div id="item_options">
         <label>Rarity (*)
             <div>
                 <select  name="item_rarity" required>
@@ -43,13 +43,13 @@
         </div>
     </div>
 
-    <div id="numbers">
+    <div id="item_numbers">
         <label>Worth in gold
-            <input type="number"  name="item_price" min="0">
+            <input type="number"  name="item_price" min="0"/>
         </label>
 
         <label>Object Weight
-            <input type="number" name="item_weight" min="0">
+            <input type="number" name="item_weight" min="0"/>
         </label>
     </div>
 

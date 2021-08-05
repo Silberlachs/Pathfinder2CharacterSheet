@@ -1,0 +1,84 @@
+<h2>WeaponCreator</h2>
+
+<form method="post" id="weaponForm" action="http://clockwork.ddnss.org/index.php/character-sheet/">
+
+    <div id="left_content">
+        <div>
+            <label>Item name (*)
+                <input type="text" name="weapon_name" required/>
+            </label>
+        </div>
+        <div>
+            <label>Item Description (*)
+                <textarea name="weapon_description" rows="4" cols="50" required></textarea>
+            </label>
+        </div>
+    </div>
+
+    <div id="center_content">
+        <label>Damage Type (*)
+            <input type="text" name="weapon_dmage_type" required/>
+        </label>
+        <label>Rarity (*)
+            <div>
+                <select  name="item_rarity" required>
+                    <option value="common">common</option>
+                    <option value="uncommon">uncommon</option>
+                    <option value="magical">magical</option>
+                    <option value="rare">rare</option>
+                    <option value="legendary">legendary</option>
+                </select>
+            </div>
+        </label>
+        <div>
+            <label>
+                <input type="checkbox" name="weapon_attunable"/>Attunement
+            </label>
+        </div>
+    </div>
+
+    <label id="weapon_tags">Tags
+            <fieldset>
+                <div id="weapon_tags_left">
+                    <input type="checkbox" name="tag" value="light">light<br>
+                    <input type="checkbox" name="tag" value="two_handed">two handed<br>
+                    <input type="checkbox" name="tag" value="reach">reach<br>
+                    <input type="checkbox" name="tag" value="range">range
+                        <input type="number" class="inline_die" name="range" min="10" max="120">ft.<br>
+                    <input type="checkbox" name="tag" value="heavy">heavy<br>
+                    <input type="checkbox" name="tag" value="versatile">versatile<br>
+                    <input type="checkbox" name="tag" value="agile">agile<br>
+                    <input type="checkbox" name="tag" value="non_lethal">non lethal<br>
+                    <input type="checkbox" name="tag" value="shove">shove<br>
+                </div>
+                <div id="weapon_tags_right">
+                    <input type="checkbox" name="tag" value="thrown">thrown<br>
+                    <input type="checkbox" name="tag" value="free hand">free hand<br>
+                    <input type="checkbox" name="tag" value="monk">monk<br>
+                    <input type="checkbox" name="tag" class="float_box" value="deadly">deadly d
+                        <input type="number" class="inline_die" name="deadlyDie" min="4" max="12" step="2"><br>
+                    <input type="checkbox" name="tag" value="parry">parry<br>
+                    <input type="checkbox" name="tag" value="sweep">sweep<br>
+                    <input type="checkbox" name="tag" value="disarm">disarm<br>
+                    <input type="checkbox" name="tag" value="trip">trip<br>
+                    <input type="checkbox" name="tag" class="float_box" value="custom">
+                        <input type="text" name="custom_tag" id="inline-box" placeholder="custom tag"/><br>
+                </div>
+            </fieldset>
+    </label>
+
+    <div id="right_lower">
+        <div class="numbers">
+            <label>Worth in gold
+                <input type="number"  name="weapon_price" min="0"/>
+            </label>
+
+            <label>Object Weight
+                <input type="number" name="weapon_weight" min="0"/>
+            </label>
+        </div>
+        <button id="weapon_submit" name="add_weapon">create</button>
+    </div>
+
+
+</form>

@@ -1,0 +1,152 @@
+#itemForm
+{
+    display: grid;
+    grid-template-columns: 30% 10% 10%;
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+#weaponForm
+{
+    display: grid;
+    grid-template-columns: 30% 10% 35%;
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+#item_name, #left_content
+{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#item_type, #center_content
+{
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#item_amount, #weapon_tags
+{
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#weapon_tags_left
+{
+    min-width: 50%;
+    max-width: 50%;
+    float: left;
+}
+
+#weapon_tags_right
+{
+    min-width: 50%;
+    max-width: 50%;
+    float: left;
+}
+
+.float_box
+{
+    float: left;
+    margin-top: 5px;
+}
+
+.inline_die
+{
+    max-width: 30%;
+    max-height: 20px;
+    display: inline !important;
+}
+
+#inline-box
+{
+    max-width: 50%;
+    max-height: 20px;
+    float: left;
+}
+
+#item_description
+{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#item_options
+{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#item_numbers
+{
+    grid-column: 3;
+    grid-row: 2;
+}
+
+#right_lower
+{
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.numbers
+{
+    max-width: 50%;
+    float: left;
+}
+
+#item_submit
+{
+    grid-column: 3;
+    grid-row: 3;
+    max-height: 60px;
+    background-color: #1d1d1b;
+    color: whitesmoke;
+    border: 2px solid red;
+}
+
+#weapon_submit
+{
+    max-height: 60px;
+    max-width: 120px;
+    background-color: #1d1d1b;
+    color: whitesmoke;
+    border: 2px solid red;
+    float:left;
+    margin-left: 130px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width:1200px){
+
+    #weaponForm
+    {
+        display: grid;
+        grid-template-columns: 40% 20%;
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+    }
+
+    #weapon_tags
+    {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    #right_lower
+    {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    #weapon_submit
+    {
+        max-height: 60px;
+        max-width: 120px;
+        background-color: #1d1d1b;
+        color: whitesmoke;
+        border: 2px solid red;
+        float:left;
+    }
+}

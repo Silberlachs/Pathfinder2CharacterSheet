@@ -29,6 +29,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 function initialize(): void
 {
+    //##############################     Forms    #############################
     //TODO: POST INTERPRETER IMPLEMENTIEREN!
     if(isset($_POST['loadCharacter'])){
         (new MainMenuHandler())->loadCharacter(__DIR__ . '/template/CharacterSheet.html',htmlspecialchars($_POST['loadCharacter']));
@@ -45,15 +46,24 @@ function initialize(): void
         return;
     }
 
+    if(isset($_POST['newWeapon'])){
+        (new MainMenuHandler())->createNewCharacter(__DIR__ . '/template/WeaponCreator.html');
+        return;
+    }
+
     if(isset($_POST['newSpell'])){
         (new MainMenuHandler())->createNewCharacter(__DIR__ . '/template/SpellCreator.html');
         return;
     }
-
+    //########################    Creations   #########################
     //TODO: add logic for different database_adding via $_POST array
     if(isset($_POST['add_item'])){
         //echoing here will be outputted ABOVE main menu (use f.e. like a notification ;)
         echo $_POST['item_rarity'];
+    }
+
+    if(isset($_POST['add_weapon'])){
+        echo "weapon added";
     }
 
     (new MainMenuHandler())->loadMainMenu(__DIR__ . '/template/MainMenu.html');
@@ -67,8 +77,8 @@ function load_scripts_and_styles() {
     wp_register_style( 'main_menu', plugins_url( 'pathfinder/css/main_menu.css' ));
     wp_enqueue_style( 'main_menu' );
 
-    wp_register_style( 'item_creator', plugins_url( 'pathfinder/css/item_creator.css' ));
-    wp_enqueue_style( 'item_creator' );
+    wp_register_style( 'creator_form', plugins_url( 'pathfinder/css/creator_form.css' ));
+    wp_enqueue_style( 'creator_form' );
 
     //TODO: make mobile
     //if(browser = desktop)
