@@ -4,14 +4,26 @@ declare(strict_types=1);
 namespace Pathfinder\DatabaseAdapter;
 
 use Pathfinder\Character\Character;
+use function PHPUnit\Framework\isNull;
 
 class Adapter
 {
     public function __construct()
     {
-        if(!get_option('characterList'))
-        {
+        if(!get_option('characterList')) {
             add_option('characterList', []);
+        }
+
+        if(!get_option('itemList')) {
+            add_option('itemList', []);
+        }
+
+        if(!get_option('weaponList')) {
+            add_option('weaponList', []);
+        }
+
+        if(!get_option('armorList')) {
+            add_option('armorList', []);
         }
     }
 
@@ -29,6 +41,36 @@ class Adapter
     {
         $this->addCharacterToList($character->getName());
         update_option($character->getName(), $character);
+    }
+
+    public function saveAddableable(DatabaseAddable $addable):string
+    {
+        $type = $addable->getObjectType();
+        $addableList = get_option($type . "List");
+
+        if(!$addableList){
+            $addableList = [];
+        }
+
+        foreach ($addableList as $addAbleObject) {
+            if (isset($addAbleObject[$addable->getName()])) {
+                return $type . ' already in Database!';
+            }
+        }
+
+        $addableList[] = [$addable->getName() => $addable];
+        update_option($type ."List", $addableList);
+        return $type . ' added to Database!';
+    }
+
+    public function loadAddableList(string $addAbleList):array|false
+    {
+        return get_option($addAbleList);
+    }
+
+    public function deleteAddableFrom(string $addAbleList, string $itemName):void
+    {
+
     }
 
     public function loadCharacter(string $characterName):Character|false

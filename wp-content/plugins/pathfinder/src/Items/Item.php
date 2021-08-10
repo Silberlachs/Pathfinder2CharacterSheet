@@ -3,8 +3,9 @@ declare(strict_types=1);
 
 namespace Pathfinder\Items;
 
+use Pathfinder\DatabaseAdapter\DatabaseAddable;
 
-class Item
+class Item implements DatabaseAddable
 {
     protected string $name;
     protected string $type;
@@ -18,14 +19,14 @@ class Item
     protected bool $needsAttunement;
     protected bool $equipable;
 
-    public function __construct(string $name, string $type, bool $needsAttunement = false)
+    public function __construct(string $name, string $type, bool $needsAttunement = false, bool $isEquipAble = false)
     {
         $this->name = $name;
         $this->type = $type;
         $this->equipped = false;
         $this->attuned = false;
         $this->needsAttunement = $needsAttunement;
-        $this->equipable = false;
+        $this->equipable = $isEquipAble;
         $this->price = 0;
         $this->weight = 0;
         $this->amount = 1;
@@ -123,5 +124,10 @@ class Item
     public function needsAttunement():bool
     {
         return $this->needsAttunement();
+    }
+
+    public function getObjectType(): string
+    {
+        return 'item';
     }
 }
