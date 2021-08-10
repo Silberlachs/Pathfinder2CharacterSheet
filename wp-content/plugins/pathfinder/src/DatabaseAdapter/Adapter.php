@@ -70,7 +70,7 @@ class Adapter
 
     public function deleteAddableFrom(string $addAbleList, string $itemName):void
     {
-
+        //TODO: implement function
     }
 
     public function loadCharacter(string $characterName):Character|false

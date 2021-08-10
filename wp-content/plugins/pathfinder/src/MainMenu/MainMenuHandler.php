@@ -41,19 +41,7 @@ class MainMenuHandler
         echo $pageRenderer->renderPage();
     }
 
-    public function createNewCharacter(string $template):void
-    {
-        $pageRenderer = new PageRenderer(new TemplateLoader($template));
-        echo $pageRenderer->renderPage();
-    }
-
-    public function createNewItem(string $template):void
-    {
-        $pageRenderer = new PageRenderer(new TemplateLoader($template));
-        echo $pageRenderer->renderPage();
-    }
-
-    public function createNewSpell(string $template):void
+    public function createNewEntity(string $template):void
     {
         $pageRenderer = new PageRenderer(new TemplateLoader($template));
         echo $pageRenderer->renderPage();

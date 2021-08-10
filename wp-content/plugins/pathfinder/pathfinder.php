@@ -23,54 +23,58 @@
  */
 
 // Start testsuite with  ./vendor/bin/phpunit tests
+use Pathfinder\DatabaseAdapter\DatabaseEntitySaver;
 use Pathfinder\MainMenu\MainMenuHandler;
 
 require __DIR__ . '/vendor/autoload.php';
 
 function initialize(): void
 {
-    //##############################     Forms    #############################
-    //TODO: POST INTERPRETER IMPLEMENTIEREN!
-    if(isset($_POST['loadCharacter'])){
-        (new MainMenuHandler())->loadCharacter(__DIR__ . '/template/CharacterSheet.html',htmlspecialchars($_POST['loadCharacter']));
+    switch (true)
+    {
+        case isset($_POST['loadCharacter']):
+            (new MainMenuHandler())->loadCharacter(__DIR__ . '/template/CharacterSheet.html',htmlspecialchars($_POST['loadCharacter']));
         return;
-    }
 
-    if(isset($_POST['newChar'])){
-        (new MainMenuHandler())->createNewCharacter(__DIR__ . '/template/CharacterCreator.html');
+        case isset($_POST['newChar']):
+            echo "how does a switch statement work";
+            (new MainMenuHandler())->createNewEntity(__DIR__ . '/template/CharacterCreator.html');
         return;
-    }
 
-    if(isset($_POST['newItem'])){
-        (new MainMenuHandler())->createNewCharacter(__DIR__ . '/template/ItemCreator.html');
+        case isset($_POST['newItem']):
+            (new MainMenuHandler())->createNewEntity(__DIR__ . '/template/ItemCreator.html');
         return;
-    }
 
-    if(isset($_POST['newWeapon'])){
-        (new MainMenuHandler())->createNewCharacter(__DIR__ . '/template/WeaponCreator.html');
+        case isset($_POST['newWeapon']):
+            (new MainMenuHandler())->createNewEntity(__DIR__ . '/template/WeaponCreator.html');
         return;
-    }
 
-    if(isset($_POST['newSpell'])){
-        (new MainMenuHandler())->createNewCharacter(__DIR__ . '/template/SpellCreator.html');
+        case isset($_POST['newArmor']):
+            (new MainMenuHandler())->createNewEntity(__DIR__ . '/template/ArmorCreator.html');
         return;
-    }
-    //########################    Creations   #########################
-    //TODO: add logic for different database_adding via $_POST array
-    if(isset($_POST['add_item'])){
-        //echoing here will be outputted ABOVE main menu (use f.e. like a notification ;)
-        echo $_POST['item_rarity'];
-    }
 
-    if(isset($_POST['add_weapon'])){
-        echo "weapon added";
+        case isset($_POST['newSpell']):
+            (new MainMenuHandler())->createNewEntity(__DIR__ . '/template/SpellCreator.html');
+        return;
+
+        case isset($_POST['add_item']):
+            (new DatabaseEntitySaver())->addItem($_POST);
+        break;
+
+        case isset($_POST['add_weapon']):
+            echo "implement this";
+        break;
+
+        case isset($_POST['add_armor']):
+            echo "implement armor";
+        break;
     }
 
     (new MainMenuHandler())->loadMainMenu(__DIR__ . '/template/MainMenu.html');
 }
 
-function load_scripts_and_styles() {
-    //TODO: split css into multiple files
+function load_scripts_and_styles() :void
+{
     wp_register_style( 'charactersheet', plugins_url( 'pathfinder/css/charactersheet.css' ));
     wp_enqueue_style( 'charactersheet' );
 
@@ -81,7 +85,6 @@ function load_scripts_and_styles() {
     wp_enqueue_style( 'creator_form' );
 
     //TODO: make mobile
-    //if(browser = desktop)
     wp_register_style( 'page_settings_desktop', plugins_url( 'pathfinder/css/pageSettings_desktop.css' ));
     wp_enqueue_style( 'page_settings_desktop' );
 
@@ -89,7 +92,6 @@ function load_scripts_and_styles() {
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'MainMenuController', plugins_url('pathfinder/js/MainMenuController.js'));
 }
-
 
 add_action('init', 'load_scripts_and_styles');
 add_shortcode('charactersheet', 'initialize');
