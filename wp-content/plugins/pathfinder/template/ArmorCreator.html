@@ -1,0 +1,54 @@
+<h2>ArmorCreator</h2>
+
+<form method="post" id="armorForm" action="http://clockwork.ddnss.org/index.php/character-sheet/">
+
+    <div id="left_content">
+        <div>
+            <label>Armor name (*)
+                <input type="text" name="armor_name" required/>
+            </label>
+        </div>
+        <div>
+            <label>Armor Description (*)
+                <textarea name="armor_description" rows="4" cols="50" required></textarea>
+            </label>
+        </div>
+    </div>
+
+    <div id="center_content">
+        <label>Armor Type (*)
+            <input type="text" name="armor_type" required/>
+        </label>
+        <label>Rarity (*)
+            <div>
+                <select  name="item_rarity" required>
+                    <option value="common">common</option>
+                    <option value="uncommon">uncommon</option>
+                    <option value="magical">magical</option>
+                    <option value="rare">rare</option>
+                    <option value="legendary">legendary</option>
+                </select>
+            </div>
+        </label>
+        <div>
+            <label>
+                <input type="checkbox" name="weapon_attunable"/>Attunement
+            </label>
+        </div>
+    </div>
+
+    <label id="armor_class">Armor Class (*)
+        <input type="text" name="armor_type" required/>
+        <div class="numbers">
+            <label>Worth in gold
+                <input type="number"  name="weapon_price" min="0"/>
+            </label>
+
+            <label>Object Weight
+                <input type="number" name="weapon_weight" min="0"/>
+            </label>
+        </div>
+        <button id="armor_submit" name="add_armor">create</button>
+    </label>
+
+</form>
