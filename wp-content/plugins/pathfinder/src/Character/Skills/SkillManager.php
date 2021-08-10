@@ -30,13 +30,14 @@ class SkillManager
         }
     }
 
-    public function getSkill(string $skillName):Skill
+    public function getSkill(string $skillName): ?Skill
     {
         foreach ($this->skills as $skill)
         {
             if($skillName === $skill->getName())
                 return $skill;
         }
+        return null;
     }
 
     public function getSkillList():array
