@@ -2,13 +2,139 @@
 
 <form method="post" id="characterCreationForm" action="http://clockwork.ddnss.org/index.php/character-sheet/">
 
-    should not be called
     <div id="left_content">
         <div>
             <label>Character name (*)
                 <input type="text" name="character_name" required/>
             </label>
         </div>
+
+        <div>
+            <label>Race (*)
+                <select  name="character_race" class="full_width_element" id="character_race" required>
+                    <option value="human">Human</option>
+                    <option value="dwarf">Dwarf</option>
+                    <option value="elf">Elf</option>
+                    <option value="gnome">Gnome</option>
+                    <option value="goblin">Goblin</option>
+                    <option value="halfling">Halfling</option>
+                    <option value="catfolk">Catfolk</option>
+                    <option value="orc">Orc</option>
+                    <option value="ratfolk">Ratfolk</option>
+                    <option value="tengu">Tengu</option>
+                    <option value="kobold">Kobold</option>
+                    <option value="changeling">Changeling</option>
+                    <option value="dhampir">Dhampir</option>
+                    <option value="planar scion">Planar scion</option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            <label>Ancestry (*)
+                <select  name="character_ancestry" class="full_width_element" id="character_ancestry" required>
+                    <option value="default">choose</option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            <label>Race Feats - Lvl 1
+                <select  name="character_race_feats" class="full_width_element" id="character_race_feats"></select>
+            </label>
+        </div>
     </div>
-    <button id="character_submit" name="add_character">create</button>
+
+    <div id="center_content">
+        <label>Class (*)
+            <select  name="character_class" class="full_width_element" id="character_class" required>
+                <option value="alchemist">Alchemist</option>
+                <option value="barbarian">Barbarian</option>
+                <option value="bard">Bard</option>
+                <option value="champion">Champion</option>
+                <option value="cleric">Cleric</option>
+                <option value="druid">Druid</option>
+                <option value="fighter">Fighter</option>
+                <option value="monk">Monk</option>
+                <option value="ranger">Ranger</option>
+                <option value="rogue">Rogue</option>
+                <option value="sorcerer">Sorcerer</option>
+                <option value="wizard">Wizard</option>
+                <option value="investigator">Investigator</option>
+                <option value="oracle">Oracle</option>
+                <option value="swashbuckler">Swashbuckler</option>
+                <option value="witch">Witch</option>
+            </select>
+        </label>
+
+        <label>Background (*)
+            <select  name="character_background" class="full_width_element" id="character_background" required>
+                <option value="acolyte">Acolyte</option>
+                <option value="acrobat">Acrobat</option>
+                <option value="animal_whisperer">Animal Whisperer</option>
+                <option value="artisan">Artisan</option>
+                <option value="artist">Artist</option>
+                <option value="barkeep">Barkeep</option>
+                <option value="barrister">Barrister</option>
+                <option value="bounty_hunter">Bounty Hunter</option>
+                <option value="charlatan">Charlatan</option>
+                <option value="criminal">Criminal</option>
+                <option value="detective">Detective</option>
+                <option value="emissary">Emissary</option>
+                <option value="entertainer">Entertainer</option>
+                <option value="farmhand">Farmhand</option>
+                <option value="field_medic">Field Medic</option>
+                <option value="fortune_teller">Fortune Teller</option>
+                <option value="gambler">Gambler</option>
+                <option value="gladiator">Gladiator</option>
+                <option value="guard">Guard</option>
+                <option value="herbalist">Herbalist</option>
+                <option value="hermit">Hermit</option>
+                <option value="hunter">Hunter</option>
+                <option value="laborer">Laborer</option>
+                <option value="martial_disciple">Martial Disciple</option>
+                <option value="merchant">Merchant</option>
+                <option value="miner">Miner</option>
+                <option value="noble">Noble</option>
+                <option value="nomad">Nomad</option>
+                <option value="prisoner">Prisoner</option>
+                <option value="sailor">Sailor</option>
+                <option value="scholar">Scholar</option>
+                <option value="scout">Scout</option>
+                <option value="street_urchin">Street Urchin</option>
+                <option value="tinker">Tinker</option>
+                <option value="warrior">Warrior</option>
+            </select>
+        </label>
+
+        <label>Class Feats - Lvl 1
+            <select name="character_class_feats" class="full_width_element" id="character_class_feats"></select>
+        </label>
+    </div>
+
+    <div id="rigth_lower">
+        <div id="character_ability_scores">
+            <label>Strength
+                <input type="number" class="inline_ability" name="strength_score" id="character_strength" min="6" max="16" value="10">
+            </label>
+            <label>Dexterity
+                <input type="number" class="inline_ability" name="dexterity_score" id="character_dexterity" min="6" max="16" value="10">
+            </label>
+            <label>Constitution
+                <input type="number" class="inline_ability" name="constitution_score" id="character_constitution" min="6" max="16" value="10">
+            </label>
+            <label>Intelligence
+                <input type="number" class="inline_ability" name="intelligence_score" id="character_intelligence" min="6" max="16" value="10">
+            </label>
+            <label>Wisdom
+                <input type="number" class="inline_ability" name="wisdom_score" id="character_wisdom" min="6" max="16" value="10">
+            </label>
+            <label>Charisma
+                <input type="number" class="inline_ability" name="charisma_score" id="character_charisma" min="6" max="16" value="10">
+            </label>
+        </div>
+        <div id="attribute_points">Attribute Points:</div>
+        <div id="chosen_boni">Boni:</div>
+        <button id="character_submit" name="add_character">create</button>
+    </div>
 </form>

@@ -37,7 +37,6 @@ function initialize(): void
         return;
 
         case isset($_POST['newChar']):
-            echo "how does a switch statement work";
             (new MainMenuHandler())->createNewEntity(__DIR__ . '/template/CharacterCreator.html');
         return;
 
@@ -58,7 +57,7 @@ function initialize(): void
         return;
 
         case isset($_POST['add_item']):
-            (new DatabaseEntitySaver())->addItem($_POST);
+            (new DatabaseEntitySaver())->addItem($_POST);   //weg über mainmenu handler?
         break;
 
         case isset($_POST['add_weapon']):
@@ -84,13 +83,13 @@ function load_scripts_and_styles() :void
     wp_register_style( 'creator_form', plugins_url( 'pathfinder/css/creator_form.css' ));
     wp_enqueue_style( 'creator_form' );
 
-    //TODO: make mobile
     wp_register_style( 'page_settings_desktop', plugins_url( 'pathfinder/css/pageSettings_desktop.css' ));
     wp_enqueue_style( 'page_settings_desktop' );
 
     //TODO: add scripts
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'MainMenuController', plugins_url('pathfinder/js/MainMenuController.js'));
+    wp_enqueue_script( 'CharacterCreator', plugins_url('pathfinder/js/CharacterCreator.js'));
 }
 
 add_action('init', 'load_scripts_and_styles');

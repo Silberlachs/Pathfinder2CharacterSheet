@@ -6,15 +6,10 @@ use Pathfinder\Character\AbilityScores\AbilityScoreManager;
 use Pathfinder\Character\Feats\FeatManager;
 use Pathfinder\Character\Inventory\InventoryManager;
 use Pathfinder\Character\Proficiencies\ProficiencyManager;
-use Pathfinder\Character\Resistances\Resistance;
 use Pathfinder\Character\Resistances\ResistanceManager;
 use Pathfinder\Character\SavingThrows\SavingThrowManager;
 use Pathfinder\Character\Skills\SkillManager;
 use Pathfinder\Races\RaceInterface;
-
-//delete when live
-use Pathfinder\Items\Item;
-use Pathfinder\Items\Weapon;
 
 class Character
 {
@@ -47,32 +42,6 @@ class Character
         $this->featManager = new FeatManager();
         $this->inventory = new InventoryManager();
         //TODO: add racial and class boni
-
-        //test values for markup evaluation ############################################################################
-        $this->resistanceManager->addResistance(new Resistance('psychic', 'immunity'));
-        $this->resistanceManager->addResistance(new Resistance('test', 'remove in future release'));
-
-        $sword = new Weapon("Longsword +1");
-        $sword->setDamage('1d8+1');
-        $sword->setDescription('tfzgukhjlkl');
-        $sword->setPrice(100);
-        $sword->setRarity('common');
-        $sword->setWeight(2);
-        $sword->setDamageType('slashing/piercing');
-        $sword->setReach(5);
-
-        $ballBearings = new Item('Ballbearings', 'thiefs-tools');
-        $ballBearings->setAmount(100);
-        $ballBearings->setDescription('some ball bearings commonly found in gears');
-        $ballBearings->setPrice(5);
-        $ballBearings->setRarity('common');
-        $ballBearings->setWeight(4);
-
-        $this->inventory->addItem($sword);
-        $this->inventory->equipItem(0);
-        $this->inventory->addItem($ballBearings);
-
-        //##############################################################################################################
     }
 
     public function getAbilityScores():array

@@ -14,6 +14,14 @@
     grid-auto-rows: minmax(100px, auto);
 }
 
+#characterCreationForm
+{
+    display: grid;
+    grid-template-columns: 20% 20% 35%;
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
 #item_name, #left_content
 {
     grid-column: 1;
@@ -116,6 +124,30 @@
     float:left;
     margin-left: 130px;
     margin-top: 20px;
+}
+
+#character_submit
+{
+    max-height: 60px;
+    max-width: 120px;
+    background-color: #1d1d1b;
+    color: whitesmoke;
+    border: 2px solid red;
+    float:right;
+    margin-left: 130px;
+    margin-top: 20px;
+}
+
+.full_width_element
+{
+    width: 100%;
+}
+
+.inline_ability
+{
+    float:right;
+    max-width: 120px;
+    max-height: 20px;
 }
 
 @media screen and (max-width:1200px){
