@@ -2,6 +2,7 @@
 
 namespace Pathfinder\Renderer;
 
+use Pathfinder\Character\Proficiencies\ProficiencyManager;
 use Pathfinder\Renderer\SkillRenderer\SkillRenderer;
 
 class TemplateLoader
@@ -69,6 +70,37 @@ class TemplateLoader
         }
 
         $this->template = str_replace('{{resistances}}', $replacementString, $this->template);
+    }
+
+    public function replaceFeats(array $feats):void
+    {
+        $this->template = str_replace('{{feats}}', "here come da feats", $this->template);
+    }
+
+    public function replaceProficiencies(ProficiencyManager $proficiencyManager):void
+    {
+        $weapons = '<div id="weapon_proficiencies">Weapons';
+        foreach ($proficiencyManager->getWeaponProficiencies() as $weapon)
+        {
+            $weapons .= '<div>' . $weapon . '</div>';
+        }
+        $weapons .= '</div>';
+
+        $armorTypes = '<div id="armor_proficiencies">Armor';
+        foreach ($proficiencyManager->getArmorProficiencies() as $armor)
+        {
+            $armorTypes .= '<div>' . $armor . '</div>';
+        }
+        $armorTypes .= '</div>';
+
+        $languages = '<div id="language_proficiencies">Languages';
+        foreach ($proficiencyManager->getWeaponProficiencies() as $language)
+        {
+            $languages .= '<div>' . $language . '</div>';
+        }
+        $languages .= '</div>';
+
+        $this->template = str_replace('{{proficiencies}}', sprintf('%s%s%s', $weapons,$armorTypes,$languages), $this->template);
     }
 
     public function buildCharacterList(array $characterList):void

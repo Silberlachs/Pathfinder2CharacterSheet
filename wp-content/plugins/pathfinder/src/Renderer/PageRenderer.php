@@ -2,6 +2,8 @@
 
 namespace Pathfinder\Renderer;
 
+use Pathfinder\Character\Proficiencies\ProficiencyManager;
+
 class PageRenderer
 {
     private TemplateLoader $templateLoader;
@@ -54,6 +56,16 @@ class PageRenderer
     public function loadSpellbook(array $spellbook):void
     {
         $this->templateLoader->replaceSpellbook($spellbook);
+    }
+
+    public function loadProficiencies(ProficiencyManager $proficiencyManager):void
+    {
+        $this->templateLoader->replaceProficiencies($proficiencyManager);
+    }
+
+    public function loadFeatList(array $feats):void
+    {
+        $this->templateLoader->replaceFeats($feats);
     }
 
     public function renderPage():string

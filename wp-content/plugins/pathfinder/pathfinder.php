@@ -67,6 +67,10 @@ function initialize(): void
         case isset($_POST['add_armor']):
             echo "implement armor";
         break;
+
+        case isset($_POST['character_addFeat']):
+            echo "add feats";
+        break;
     }
 
     (new MainMenuHandler())->loadMainMenu(__DIR__ . '/template/MainMenu.html');

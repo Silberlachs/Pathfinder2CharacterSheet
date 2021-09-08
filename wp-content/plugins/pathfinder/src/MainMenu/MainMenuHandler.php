@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Pathfinder\MainMenu;
 
+use Pathfinder\Character\Feats\FeatManager;
 use Pathfinder\DatabaseAdapter\Adapter;
 use Pathfinder\Renderer\PageRenderer;
 use Pathfinder\Renderer\TemplateLoader;
@@ -22,12 +23,14 @@ class MainMenuHandler
         $pageRenderer = new PageRenderer(new TemplateLoader($template));
 
         $pageRenderer->loadCharacterDetails([$character->getProficiencyBonus()]);
+        $pageRenderer->loadProficiencies($character->getProficiencies());
         $pageRenderer->loadAbilityScores($character->getAbilityScores());
         $pageRenderer->loadSkillList($character->getSkillList());
         $pageRenderer->loadSavingThrows($character->getSavingThrowList());
         $pageRenderer->loadResistances($character->getResistances());
         $pageRenderer->loadActionBar($character->getEquippedItems());
         $pageRenderer->loadInventory($character->getInventory());
+        $pageRenderer->loadFeatList($character->getFeats());
         $pageRenderer->loadSpellbook([]);
 
         echo $pageRenderer->renderPage();

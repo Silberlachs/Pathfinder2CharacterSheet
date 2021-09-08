@@ -8,6 +8,13 @@ class ProficiencyManager
     private array $weapons;
     private array $armor;
 
+    public function __construct()
+    {
+        $this->languages = [];
+        $this->weapons = [];
+        $this->armor = [];
+    }
+
     public function addLanguageProficiency(string $language)
     {
         $this->languages[] = $language;

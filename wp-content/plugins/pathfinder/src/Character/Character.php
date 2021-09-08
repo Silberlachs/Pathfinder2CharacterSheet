@@ -31,6 +31,8 @@ class Character
 
         $this->abilityScoreManager = new AbilityScoreManager(10,10,10,10,10,10);
         $this->skillManager = new SkillManager(__DIR__.'/Skills/skills');
+        $this->featManager = new FeatManager();
+
         $this->savingThrowManager = new SavingThrowManager
         (
             $this->abilityScoreManager->getConstitution(),
@@ -39,7 +41,7 @@ class Character
         );
         $this->resistanceManager = new ResistanceManager();
         $this->proficiencyManager = new ProficiencyManager();
-        $this->featManager = new FeatManager();
+
         $this->inventory = new InventoryManager();
         //TODO: add racial and class boni
     }
@@ -99,9 +101,9 @@ class Character
         return "testClass";
     }
 
-    public function getFeats():FeatManager
+    public function getFeats():array
     {
-        return $this->featManager;
+        return $this->featManager->getFeatList();
     }
 
     public function getProficiencies():ProficiencyManager

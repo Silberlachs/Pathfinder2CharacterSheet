@@ -15,4 +15,8 @@ class FeatManager
 
     }
 
+    public function getFeatList():array
+    {
+        return $this->featList;
+    }
 }
