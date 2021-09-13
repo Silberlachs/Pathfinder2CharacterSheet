@@ -37,6 +37,7 @@ function initialize(): void
         return;
 
         case isset($_POST['newChar']):
+            wp_enqueue_script( 'CharacterCreator', plugins_url('pathfinder/js/characterCreation/CharacterCreator.js'));
             (new MainMenuHandler())->createNewEntity(__DIR__ . '/template/CharacterCreator.html');
         return;
 
@@ -92,8 +93,7 @@ function load_scripts_and_styles() :void
 
     //TODO: add scripts
     wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'MainMenuController', plugins_url('pathfinder/js/MainMenuController.js'));
-    wp_enqueue_script( 'CharacterCreator', plugins_url('pathfinder/js/CharacterCreator.js'));
+   // wp_enqueue_script( 'MainMenuController', plugins_url('pathfinder/js/MainMenuController.js'));
 }
 
 add_action('init', 'load_scripts_and_styles');

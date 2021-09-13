@@ -1,12 +1,15 @@
 <?php
 
-namespace Pathfinder\Races;
+namespace Pathfinder\Races\Dwarf;
 
 use Pathfinder\Character\AbilityScores\Ability;
+use Pathfinder\Feats\Feat;
+use Pathfinder\Races\RaceInterface;
 
 class Dwarf implements RaceInterface
 {
     private $boni = ['constitution', 'wisdom'];
+    private $initialFeat;
 
     public function getBoni(): array
     {
@@ -23,18 +26,18 @@ class Dwarf implements RaceInterface
         return 'charisma';
     }
 
-    public function getInitialFeats():array
+    public function setInitialFeat(Feat $initialFeat):void
     {
-
+        $this->initialFeat = $initialFeat;
     }
 
-    public function getInitialProficiencies():array
+    public function getInitialFeat(): Feat
     {
-
+        return $this->initialFeat;
     }
 
     public function getFeatList(int $level): array
     {
-        // TODO: Implement getFeatList() method.
+        return [];
     }
 }

@@ -4,10 +4,17 @@ namespace Pathfinder\Feats;
 
 class Feat implements FeatInterface
 {
+    private string $featName;
+
+    public function __construct(string $featName)
+    {
+        $this->featName = $featName;
+    }
+
     //FEATS ARE TO BE ADDED VIA A MASK AND NEED TO STAY IN DATABASE!!!!
     public function getFeatName(): string
     {
-        // TODO: Implement getFeatName() method.
+        return $this->featName;
     }
 
     public function getAbilityScoreChange(): array
