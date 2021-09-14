@@ -9,6 +9,7 @@ use Pathfinder\Character\Proficiencies\ProficiencyManager;
 use Pathfinder\Character\Resistances\ResistanceManager;
 use Pathfinder\Character\SavingThrows\SavingThrowManager;
 use Pathfinder\Character\Skills\SkillManager;
+use Pathfinder\Character\Tags\TagManager;
 use Pathfinder\Races\RaceInterface;
 
 class Character
@@ -21,6 +22,7 @@ class Character
     private InventoryManager $inventory;
     private FeatManager $featManager;
     private RaceInterface $race;
+    private TagManager $tagManager;
     private int $level;
     private string $name;
 
@@ -42,6 +44,7 @@ class Character
         $this->resistanceManager = new ResistanceManager();
         $this->proficiencyManager = new ProficiencyManager();
 
+        $this->tagManager = new TagManager();
         $this->inventory = new InventoryManager();
         //TODO: add racial and class boni
     }

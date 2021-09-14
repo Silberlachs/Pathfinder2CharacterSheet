@@ -12,20 +12,30 @@
         <div>
             <label>Race (*)
                 <select  name="character_race" class="full_width_element" id="character_race" required>
-                    <option value="human">Human</option>
-                    <option value="dwarf">Dwarf</option>
-                    <option value="elf">Elf</option>
-                    <option value="gnome">Gnome</option>
-                    <option value="goblin">Goblin</option>
-                    <option value="halfling">Halfling</option>
-                    <option value="catfolk">Catfolk</option>
-                    <option value="orc">Orc</option>
-                    <option value="ratfolk">Ratfolk</option>
-                    <option value="tengu">Tengu</option>
-                    <option value="kobold">Kobold</option>
-                    <option value="changeling">Changeling</option>
-                    <option value="dhampir">Dhampir</option>
-                    <option value="planar scion">Planar scion</option>
+                    <optgroup label="Normal Races">
+                        <option value="human">Human</option>
+                        <option value="dwarf">Dwarf</option>
+                        <option value="elf">Elf</option>
+                        <option value="gnome">Gnome</option>
+                        <option value="goblin">Goblin</option>
+                        <option value="halfling">Halfling</option>
+                    </optgroup>
+                    <optgroup label="Advanced Races">
+                        <option value="catfolk">Catfolk</option>
+                        <option value="orc">Orc</option>
+                        <option value="ratfolk">Ratfolk</option>
+                        <option value="tengu">Tengu</option>
+                        <option value="kobold">Kobold</option>
+                    </optgroup>
+                    <optgroup label="Variant Races">
+                        <option value="changeling">Changeling</option>
+                        <option value="dhampir">Dhampir</option>
+                    </optgroup>
+                    <optgroup label="Planetary Scions">
+                        <option value="Aasimar">Aasimar</option>
+                        <option value="Duskwalker">Duskwalker</option>
+                        <option value="Tiefling">Tiefling</option>
+                    </optgroup>
                 </select>
             </label>
         </div>
@@ -51,12 +61,84 @@
                     '<option value="natural_ambition">Natural Ambition</option>'
                     '<option value="natural_skill">Natural Skill</option>'
                     '<option value="unconventional_weaponary">Unconventional Weaponary</option>'
+                    '<option value="elf_atavism">Elf Atavism</option>'
                 </select>
             </label>
         </div>
     </div>
 
     <div id="center_content">
+        <label>Background (*)
+            <select  name="character_background" class="full_width_element" id="character_background" required>
+                <optgroup label="Normal Backgrounds">
+                    <option value="acolyte">Acolyte</option>
+                    <option value="acrobat">Acrobat</option>
+                    <option value="animal_whisperer">Animal Whisperer</option>
+                    <option value="artisan">Artisan</option>
+                    <option value="artist">Artist</option>
+                    <option value="barkeep">Barkeep</option>
+                    <option value="barrister">Barrister</option>
+                    <option value="bounty_hunter">Bounty Hunter</option>
+                    <option value="charlatan">Charlatan</option>
+                    <option value="criminal">Criminal</option>
+                    <option value="detective">Detective</option>
+                    <option value="emissary">Emissary</option>
+                    <option value="entertainer">Entertainer</option>
+                    <option value="farmhand">Farmhand</option>
+                    <option value="field_medic">Field Medic</option>
+                    <option value="fortune_teller">Fortune Teller</option>
+                    <option value="gambler">Gambler</option>
+                    <option value="gladiator">Gladiator</option>
+                    <option value="guard">Guard</option>
+                    <option value="herbalist">Herbalist</option>
+                    <option value="hermit">Hermit</option>
+                    <option value="hunter">Hunter</option>
+                    <option value="laborer">Laborer</option>
+                    <option value="martial_disciple">Martial Disciple</option>
+                    <option value="merchant">Merchant</option>
+                    <option value="miner">Miner</option>
+                    <option value="noble">Noble</option>
+                    <option value="nomad">Nomad</option>
+                    <option value="prisoner">Prisoner</option>
+                    <option value="sailor">Sailor</option>
+                    <option value="scholar">Scholar</option>
+                    <option value="scout">Scout</option>
+                    <option value="street_urchin">Street Urchin</option>
+                    <option value="tinker">Tinker</option>
+                    <option value="warrior">Warrior</option>
+                </optgroup>
+                <optgroup label="Advanced Backgrounds">
+                    <option value="bandit">Bandit</option>
+                    <option value="barber">Barber</option>
+                    <option value="bookkeeper">Bookkeeper</option>
+                    <option value="cook">Cook</option>
+                    <option value="courier">Courier</option>
+                    <option value="cultist">Cultist</option>
+                    <option value="insurgent">Insurgent</option>
+                    <option value="outrider">Outrider</option>
+                    <option value="pilgrim">Pilgrim</option>
+                    <option value="refugee">Refugee</option>
+                    <option value="root_worker">Root Worker</option>
+                    <option value="scavenger">Scavenger</option>
+                    <option value="servant">Servant</option>
+                    <option value="squire">Squire</option>
+                    <option value="tax_collector">Tax Collector</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="ward">Ward</option>
+                </optgroup>
+                <optgroup label="Rare Backgrounds">
+                    <option value="amnesiac">Amnesiac</option>
+                    <option value="blessed">Blessed</option>
+                    <option value="cursed">Cursed</option>
+                    <option value="fearl_child">Feral Child</option>
+                    <option value="feybound">Feybound</option>
+                    <option value="hounted">Hounted</option>
+                    <option value="returned">Returned</option>
+                    <option value="royalty">Royalty</option>
+                </optgroup>
+            </select>
+        </label>
+
         <label>Class (*)
             <select  name="character_class" class="full_width_element" id="character_class" required>
                 <option value="alchemist">Alchemist</option>
@@ -75,46 +157,6 @@
                 <option value="oracle">Oracle</option>
                 <option value="swashbuckler">Swashbuckler</option>
                 <option value="witch">Witch</option>
-            </select>
-        </label>
-
-        <label>Background (*)
-            <select  name="character_background" class="full_width_element" id="character_background" required>
-                <option value="acolyte">Acolyte</option>
-                <option value="acrobat">Acrobat</option>
-                <option value="animal_whisperer">Animal Whisperer</option>
-                <option value="artisan">Artisan</option>
-                <option value="artist">Artist</option>
-                <option value="barkeep">Barkeep</option>
-                <option value="barrister">Barrister</option>
-                <option value="bounty_hunter">Bounty Hunter</option>
-                <option value="charlatan">Charlatan</option>
-                <option value="criminal">Criminal</option>
-                <option value="detective">Detective</option>
-                <option value="emissary">Emissary</option>
-                <option value="entertainer">Entertainer</option>
-                <option value="farmhand">Farmhand</option>
-                <option value="field_medic">Field Medic</option>
-                <option value="fortune_teller">Fortune Teller</option>
-                <option value="gambler">Gambler</option>
-                <option value="gladiator">Gladiator</option>
-                <option value="guard">Guard</option>
-                <option value="herbalist">Herbalist</option>
-                <option value="hermit">Hermit</option>
-                <option value="hunter">Hunter</option>
-                <option value="laborer">Laborer</option>
-                <option value="martial_disciple">Martial Disciple</option>
-                <option value="merchant">Merchant</option>
-                <option value="miner">Miner</option>
-                <option value="noble">Noble</option>
-                <option value="nomad">Nomad</option>
-                <option value="prisoner">Prisoner</option>
-                <option value="sailor">Sailor</option>
-                <option value="scholar">Scholar</option>
-                <option value="scout">Scout</option>
-                <option value="street_urchin">Street Urchin</option>
-                <option value="tinker">Tinker</option>
-                <option value="warrior">Warrior</option>
             </select>
         </label>
 
