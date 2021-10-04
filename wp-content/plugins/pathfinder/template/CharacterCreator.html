@@ -68,8 +68,8 @@
     </div>
 
     <div id="center_content">
-        <label>Background (*)
-            <select  name="character_background" class="full_width_element" id="character_background" required>
+        <label>Background (*)<br>
+            <select  name="character_background" id="character_background" required>
                 <optgroup label="Normal Backgrounds">
                     <option value="acolyte">Acolyte</option>
                     <option value="acrobat">Acrobat</option>
@@ -137,57 +137,88 @@
                     <option value="royalty">Royalty</option>
                 </optgroup>
             </select>
+            <select id="character_background_attribute">
+                <option value="intelligence">Intelligence</option>
+                <option value="wisdom">Widsom</option>
+            </select>
         </label>
 
         <label>Class (*)
             <select  name="character_class" class="full_width_element" id="character_class" required>
-                <option value="alchemist">Alchemist</option>
-                <option value="barbarian">Barbarian</option>
-                <option value="bard">Bard</option>
-                <option value="champion">Champion</option>
-                <option value="cleric">Cleric</option>
-                <option value="druid">Druid</option>
-                <option value="fighter">Fighter</option>
-                <option value="monk">Monk</option>
-                <option value="ranger">Ranger</option>
-                <option value="rogue">Rogue</option>
-                <option value="sorcerer">Sorcerer</option>
-                <option value="wizard">Wizard</option>
-                <option value="investigator">Investigator</option>
-                <option value="oracle">Oracle</option>
-                <option value="swashbuckler">Swashbuckler</option>
-                <option value="witch">Witch</option>
+                <optgroup label="Basic Classes">
+                    <option value="alchemist" selected="selected">Alchemist</option>
+                    <option value="barbarian">Barbarian</option>
+                    <option value="bard">Bard</option>
+                    <option value="champion">Champion</option>
+                    <option value="cleric">Cleric</option>
+                    <option value="druid">Druid</option>
+                    <option value="fighter">Fighter</option>
+                    <option value="monk">Monk</option>
+                    <option value="ranger">Ranger</option>
+                    <option value="rogue">Rogue</option>
+                    <option value="sorcerer">Sorcerer</option>
+                    <option value="wizard">Wizard</option>
+                </optgroup>
+                <optgroup label="Advanced Classes">
+                    <option value="investigator">Investigator</option>
+                    <option value="oracle">Oracle</option>
+                    <option value="swashbuckler">Swashbuckler</option>
+                    <option value="witch">Witch</option>
+                </optgroup>
+            </select>
+        </label>
+
+        <label><div id="class_specialisation_name">Research Field</div>
+            <select name="character_class_specialisation" class="full_width_element" id="character_class_specialisation">
+                <option value="bomber" selected="selected">Bomber</option>
+                <option value="chirurgeon">Chirurgeon</option>
+                <option value="mutagenist">Mutagenist</option>
             </select>
         </label>
 
         <label>Class Feats - Lvl 1
-            <select name="character_class_feats" class="full_width_element" id="character_class_feats"></select>
+            <select name="character_class_feats" class="full_width_element" id="character_class_feats">
+                <option value="alchemical_familiar" selected="selected">Alchemical Familiar</option>
+                <option value="alchemical_savant">Alchemical Savant</option>
+                <option value="far_lobber">Far Lobber</option>
+                <option value="quick_bomber">Quick Bomber</option>
+            </select>
         </label>
     </div>
+
+    <div id="right_extra"></div>
 
     <div id="rigth_lower">
         <div id="character_ability_scores">
             <label>Strength
-                <input type="number" class="inline_ability" name="strength_score" id="character_strength" min="6" max="16" value="10">
+                <input type="number" class="inline_ability" name="strength_score" id="character_strength" onkeydown="return false" min="6" max="16" value="10">
             </label>
             <label>Dexterity
-                <input type="number" class="inline_ability" name="dexterity_score" id="character_dexterity" min="6" max="16" value="10">
+                <input type="number" class="inline_ability" name="dexterity_score" id="character_dexterity" onkeydown="return false" min="6" max="16" value="10">
             </label>
             <label>Constitution
-                <input type="number" class="inline_ability" name="constitution_score" id="character_constitution" min="6" max="16" value="10">
+                <input type="number" class="inline_ability" name="constitution_score" id="character_constitution" onkeydown="return false" min="6" max="16" value="10">
             </label>
             <label>Intelligence
-                <input type="number" class="inline_ability" name="intelligence_score" id="character_intelligence" min="6" max="16" value="10">
+                <input type="number" class="inline_ability" name="intelligence_score" id="character_intelligence" onkeydown="return false" min="6" max="16" value="12">
             </label>
             <label>Wisdom
-                <input type="number" class="inline_ability" name="wisdom_score" id="character_wisdom" min="6" max="16" value="10">
+                <input type="number" class="inline_ability" name="wisdom_score" id="character_wisdom" onkeydown="return false" min="6" max="16" value="10">
             </label>
             <label>Charisma
-                <input type="number" class="inline_ability" name="charisma_score" id="character_charisma" min="6" max="16" value="10">
+                <input type="number" class="inline_ability" name="charisma_score" id="character_charisma" onkeydown="return false" min="6" max="16" value="10">
             </label>
         </div>
-        <div id="attribute_points">Attribute Points:</div>
-        <div id="chosen_boni">Boni:</div>
+        <div id="message"></div>
+        Attribute Points:
+        <span id="chosen_boni">3</span>
         <button id="character_submit" name="add_character">create</button>
+    </div>
+    <div id="right_offscreen">
+        <label>Skills</label>
+        <div id="skill_list"></div>
+        <hr>
+        <label>Feats</label>
+        <div id="feat_list"></div>
     </div>
 </form>

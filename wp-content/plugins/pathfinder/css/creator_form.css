@@ -92,16 +92,43 @@
     grid-row: 2;
 }
 
+#right_extra
+{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#right_extra>select
+{
+    width: 100%;
+}
+
 #right_lower
 {
     grid-column: 3;
     grid-row: 2;
 }
 
+#right_offscreen
+{
+    grid-column: 4;
+    grid-row: 1;
+}
+
 .numbers
 {
     max-width: 50%;
     float: left;
+}
+
+#chosen_boni
+{
+    margin-left: 50%;
+}
+
+#message
+{
+    float:left;
 }
 
 #item_submit
@@ -124,6 +151,11 @@
     float:left;
     margin-left: 130px;
     margin-top: 20px;
+}
+
+#character_background, #character_background_attribute
+{
+    width: 49%;
 }
 
 #character_submit
