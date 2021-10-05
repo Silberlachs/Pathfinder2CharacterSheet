@@ -59,13 +59,11 @@ jQuery(document).ready(function($)
                 '<option value="monstrous_peacemaker">Monstrous Peacemaker</option>'
             );
         }
-        console.log("race added")
         eval("select"+$('#character_class').find(":selected").text() + "();");
-        console.log("class added");
         eval("select"+$('#character_background').find(":selected").text() + "();");
-        console.log("background added");
 
-        //add additional skills to choose from here
+        let intMod = -5 + Math.floor(parseInt($('#character_intelligence').val())/2);
+        addInlineSkills(intMod);
     });
 
     $('#right_extra').change(function(){
@@ -167,7 +165,7 @@ jQuery(document).ready(function($)
 
     function resetSkillsAndFeats()
     {
-        $('#skill_list').html("");
+        $('#skill_list').html('<div id="inline_skills"></div>');
         $('#feat_list').html("");
     }
 
@@ -195,6 +193,12 @@ jQuery(document).ready(function($)
        else{
             console.log("unknown ability score input box case [line 157]");
         }
+
+       if(this.getAttribute("id") === "character_intelligence")
+       {
+           let intMod = -5 + Math.floor(parseInt($('#character_intelligence').val())/2);
+           addInlineSkills(intMod);
+       }
 
     });
 
@@ -224,13 +228,41 @@ jQuery(document).ready(function($)
     {
         $('#message').text(arguments[0]);
     }
-    //#############################  extra Box    ##########################################
+    //#############################  extra Boxes    ##########################################
 
     function clearExtraBox()
     {
         $('#right_extra').html("");
     }
 
+    function addInlineSkills(count)
+    {
+        $('#inline_skills').html("");
+        for(let i=0; i< arguments[0]; i++)
+        {
+            $('#inline_skills').append(''+
+                '<select class="extra_skills" name="skills[]">'+
+                    '<option value="acrobatics" selected>Acrobatics (dex)</option>'+
+                    '<option value="arcana">Arcana (int)</option>'+
+                    '<option value="athletics">Athletics (str)</option>'+
+                    '<option value="crafting">Crafting (int)</option>'+
+                    '<option value="deception">Deception (cha)</option>'+
+                    '<option value="diplomacy">Diplomacy (cha)</option>'+
+                    '<option value="intimidation">Intimidation (cha)</option>'+
+                    '<option value="lore">Lore (int)</option>'+
+                    '<option value="medicine">Medicine (wis)</option>'+
+                    '<option value="nature">Nature (wis)</option>'+
+                    '<option value="occultism">Occultism (int)</option>'+
+                    '<option value="performance">Performance (cha)</option>'+
+                    '<option value="religion">Religion (wis)</option>'+
+                    '<option value="society">Society (int)</option>'+
+                    '<option value="stealth">Stealth (dex)</option>'+
+                    '<option value="survival">Survival (wis)</option>'+
+                    '<option value="thievery">Thiefery (dex)</option>'+
+                '</select>'
+            );
+        }
+    }
 
     //#############################     Races     ##########################################
 
@@ -599,9 +631,8 @@ jQuery(document).ready(function($)
         );
 
         $('#skill_list').append('<b>Barbarian</b><br>');
-        $('#skill_list').append('Athletics<br>');
-        $('#skill_list').append('Perception<br>');
-        $('#skill_list').append('Additional Skills (Int Mod)<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="athletics" />Athletics<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="athletics" />Perception<br>');
 
     }
     function selectBard()
@@ -874,13 +905,10 @@ jQuery(document).ready(function($)
     }
 
     /*
-            add additional skills -> inline selectors
-            add function at end of initial routine
             add function to return filled select fields
-            (no 2 same skills can be chosen)
+            (no 2 same skills can be chosen) -> choose another skill instead
+
+            add skills from races and classes to formular, and done!
      */
 
 });
-
-
-

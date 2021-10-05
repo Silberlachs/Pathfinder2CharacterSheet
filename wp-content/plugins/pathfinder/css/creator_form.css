@@ -121,6 +121,11 @@
     float: left;
 }
 
+.extra_skills
+{
+    max-height: 20px;
+}
+
 #chosen_boni
 {
     margin-left: 50%;
