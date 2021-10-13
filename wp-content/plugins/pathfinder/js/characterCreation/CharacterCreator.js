@@ -79,15 +79,31 @@ jQuery(document).ready(function($)
         {
             case "Abberant" :
                 $('#right_extra').html('Spell list [ occult ]');
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="intimidation trained" />Intimidation<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="occultism trained" />Occultism<br>');
+                addClassSkills(2);
             break;
             case "Angelic" :
                 $('#right_extra').html('Spell list [ divine ]');
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="diplomacy trained" />Diplomacy<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="religion trained" />Religion<br>');
+                addClassSkills(2);
             break;
             case "Demonic" :
                 $('#right_extra').html('Spell list [ divine ]');
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="intimidation trained" />Intimidation<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="religion trained" />Religion<br>');
+                addClassSkills(2);
             break;
             case "Diabolic" :
                 $('#right_extra').html('Spell list [ divine ]');
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="deception trained" />Deception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="religion trained" />Religion<br>');
+                addClassSkills(2);
             break;
             case "Draconic" :
                 $('#right_extra').html(''+
@@ -109,6 +125,10 @@ jQuery(document).ready(function($)
                     '</select>'+
                     'Spell list [ arcane ]<br>'
                 );
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="arcana trained" />Arcana<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="intimidation trained" />Intimidation<br>');
+                addClassSkills(2);
             break;
             case "Elemental" :
                 $('#right_extra').html(''+
@@ -121,18 +141,89 @@ jQuery(document).ready(function($)
                     'Spell list [ primal ]<br>'+
                     'Marked Spells deal bludgeoning damage for [ Air / Water / Earth ] or fire damage for [ Fire ].'
                 );
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="intimidation trained" />Intimidation<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="nature trained" />Nature<br>');
+                addClassSkills(2);
             break;
             case "Fey" :
                 $('#right_extra').html('Spell list [ divine ]');
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="deception trained" />Deception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="nature trained" />Nature<br>');
+                addClassSkills(2);
             break;
             case "Hag" :
                 $('#right_extra').html('Spell list [ occult ]');
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="deception trained" />Deception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="occultism trained" />Occultism<br>');
+                addClassSkills(2);
             break;
             case "Imperial" :
                 $('#right_extra').html('Spell list [ arcane ]');
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="arcana trained" />Arcana<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="society trained" />Society<br>');
+                addClassSkills(2);
             break;
             case "Undead" :
                 $('#right_extra').html('Spell list [ divine ]');
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="intimidation trained" />Intimidation<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="religion trained" />Religion<br>');
+                addClassSkills(2);
+            break;
+            case "Ruffian":
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="intimidation trained" />Intimidation<br>');
+                $('#right_extra').html('<label>Key Ability Score</label>'+
+                    '<select id="chosen_attribute">'+
+                        '<option value="Strenght">Strength</option>'+
+                        '<option value="Dexterity" selected>Dexterity</option>'+
+                    '</select>'+
+                    'Can Choose any ability Score from Racket'
+                );
+                addClassSkills(7);
+                break;
+            case "Scoundrel":
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="deception trained" />Deception<br>');
+                $('#class_skills').append('<input type="hidden" name="skills[]" value="diplomacy trained" />Diplomacy<br>');
+                $('#right_extra').html('<label>Key Ability Score</label>'+
+                    '<select id="chosen_attribute">'+
+                    '<option value="Dexterity" selected>Dexterity</option>'+
+                    '<option value="Charisma">Charisma</option>'+
+                    '</select>'+
+                    'Can Choose any ability Score from Racket'
+                );
+                addClassSkills(7);
+                break;
+            case "Thief":
+                $('#class_skills').html('<input type="hidden" name="skills[]" value="thiefery trained" />Thiefery<br>');
+                $('#right_extra').html('<label>Key Ability Score</label>'+
+                    '<select id="chosen_attribute">'+
+                    '<option value="Dexterity" selected>Dexterity</option>'+
+                    '</select>'+
+                    'Can Choose any ability Score from Racket'
+                );
+                addClassSkills(7);
+                break;
+            case "Universal School":
+            case "Abjuration School":
+            case "Conjuration School":
+            case "Divination School":
+            case "Enchantment School":
+            case "Evocation School":
+            case "Illusion School":
+            case "Necromancy School":
+            case "Transmutation School":
+                $('#right_extra').html('Arcane Thesis<br>' +
+                    '<select id="wizard_arcane_thesis">' +
+                    '<option value="improved_familiar_attunement">Improved Familiar Attunement</option>'+
+                    '<option value="metamagical_experimentation">Metamagical Experimentation</option>'+
+                    '<option value="spell_blending">Spell Blending</option>'+
+                    '<option value="spell substitution">Spell Substitution</option>'+
+                    '</select>'
+                );
             break;
             default:
                 $('#right_extra').html('');
@@ -166,7 +257,9 @@ jQuery(document).ready(function($)
     function resetSkillsAndFeats()
     {
         $('#skill_list').html('<div id="inline_skills"></div>');
+        $('#skill_list').append('<div id="class_skills"></div>');
         $('#feat_list').html("");
+        $('#save_list').html("");
     }
 
     //##########################  Number box manipulation ###############################
@@ -237,7 +330,6 @@ jQuery(document).ready(function($)
 
     function addInlineSkills(count)
     {
-        $('#inline_skills').html("");
         for(let i=0; i< arguments[0]; i++)
         {
             $('#inline_skills').append(''+
@@ -259,6 +351,34 @@ jQuery(document).ready(function($)
                     '<option value="stealth">Stealth (dex)</option>'+
                     '<option value="survival">Survival (wis)</option>'+
                     '<option value="thievery">Thiefery (dex)</option>'+
+                '</select>'
+            );
+        }
+    }
+
+    function addClassSkills(count)
+    {
+        for(let i=0; i< arguments[0]; i++)
+        {
+            $('#class_skills').append(''+
+                '<select class="extra_skills" name="skills[]">'+
+                '<option value="acrobatics" selected>Acrobatics (dex)</option>'+
+                '<option value="arcana">Arcana (int)</option>'+
+                '<option value="athletics">Athletics (str)</option>'+
+                '<option value="crafting">Crafting (int)</option>'+
+                '<option value="deception">Deception (cha)</option>'+
+                '<option value="diplomacy">Diplomacy (cha)</option>'+
+                '<option value="intimidation">Intimidation (cha)</option>'+
+                '<option value="lore">Lore (int)</option>'+
+                '<option value="medicine">Medicine (wis)</option>'+
+                '<option value="nature">Nature (wis)</option>'+
+                '<option value="occultism">Occultism (int)</option>'+
+                '<option value="performance">Performance (cha)</option>'+
+                '<option value="religion">Religion (wis)</option>'+
+                '<option value="society">Society (int)</option>'+
+                '<option value="stealth">Stealth (dex)</option>'+
+                '<option value="survival">Survival (wis)</option>'+
+                '<option value="thievery">Thiefery (dex)</option>'+
                 '</select>'
             );
         }
@@ -610,6 +730,12 @@ jQuery(document).ready(function($)
             '<option value="far_lobber">Far Lobber</option>'+
             '<option value="quick_bomber">Quick Bomber</option>'
         );
+        $('#skill_list').append('<b>Alchemist</b><br>');
+        $('#skill_list').append('<div id="class_skills">');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="perception expert" />Perception<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="crafting trained" />Crafting<br>');
+        $('#skill_list').append('</div>');
+        addClassSkills(3);
     }
     function selectBarbarian()
     {
@@ -629,11 +755,12 @@ jQuery(document).ready(function($)
             '<option value="raging_thrower">Raging Thrower</option>'+
             '<option value="sudden_charge">Sudden Charge</option>'
         );
-
         $('#skill_list').append('<b>Barbarian</b><br>');
-        $('#skill_list').append('<input type="hidden" name="skills[]" value="athletics" />Athletics<br>');
-        $('#skill_list').append('<input type="hidden" name="skills[]" value="athletics" />Perception<br>');
-
+        $('#skill_list').append('<div id="class_skills">');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="athletics trained" />Athletics<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="perception expert" />Perception<br>');
+        $('#skill_list').append('</div>');
+        addClassSkills(3);
     }
     function selectBard()
     {
@@ -651,6 +778,14 @@ jQuery(document).ready(function($)
             '<option value="reach_spell">Reach Spell</option>'+
             '<option value="versatile_performance">Versatile Performance</option>'
         );
+        $('#skill_list').append('<b>Bard</b><br>');
+        $('#skill_list').append('<div id="class_skills">');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="occultism trained" />Occultism<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="performance trained" />Performance<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="perception expert" />Perception<br>');
+        $('#skill_list').append('</div>');
+        addClassSkills(4);
+
     }
     function selectChampion()
     {
@@ -676,6 +811,12 @@ jQuery(document).ready(function($)
             '<option value="unimpeded_step">Unimpeded Step</option>'+
             '<option value="weigth_of_guilt">Weight of Guilt</option>'
         );
+        $('#skill_list').append('<b>Champion</b><br>');
+        $('#skill_list').append('<div id="class_skills">');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="religion trained" />Religion<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+        $('#skill_list').append('</div>');
+        addClassSkills(2);
     }
     function selectCleric()
     {
@@ -694,6 +835,12 @@ jQuery(document).ready(function($)
             '<option value="holy_castigation">Holy Castigation</option>'+
             '<option value="reach_spell">Reach Spell</option>'
         );
+        $('#skill_list').append('<b>Cleric</b><br>');
+        $('#skill_list').append('<div id="class_skills">');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="religion trained" />Religion<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+        $('#skill_list').append('</div>');
+        addClassSkills(3);
     }
     function selectDruid()
     {
@@ -714,6 +861,12 @@ jQuery(document).ready(function($)
             '<option value="widen_spell">Widen Spell</option>'+
             '<option value="wild_shape">Wild Shape</option>'
         );
+        $('#skill_list').append('<b>Druid</b><br>');
+        $('#skill_list').append('<div id="class_skills">');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="nature trained" />Nature<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+        $('#skill_list').append('</div>');
+        addClassSkills(3);
     }
     function selectFighter()
     {
@@ -740,6 +893,12 @@ jQuery(document).ready(function($)
             '<option value="snagging_strike">Snagging Strike</option>'+
             '<option value="sudden_charge">Sudden Charge</option>'
         );
+        $('#skill_list').append('<b>Fighter</b><br>');
+        $('#skill_list').append('<div id="class_skills">');
+        $('#skill_list').append('<select><option>acrobatics</option><option>athletics</option></select>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+        $('#skill_list').append('</div>');
+        addClassSkills(3);
     }
     function selectMonk()
     {
@@ -767,6 +926,10 @@ jQuery(document).ready(function($)
             '<option value="tiger_stance">Tiger Stance</option>'+
             '<option value="wolf_stance">Wolf Stance</option>'
         );
+        $('#skill_list').append('<b>Monk</b><br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+        $('#skill_list').append('</div>');
+        addClassSkills(4);
     }
     function selectRanger()
     {
@@ -791,6 +954,13 @@ jQuery(document).ready(function($)
             '<option value="monster_hunter">Monster Hunter</option>'+
             '<option value="twin_takedown">Twin Takedown</option>'
         );
+        $('#skill_list').append('<b>Ranger</b><br>');
+        $('#skill_list').append('<div id="class_skills">');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="perception expert" />Perception<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="nature trained" />Nature<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="survival trained" />Survival<br>');
+        $('#skill_list').append('</div>');
+        addClassSkills(4);
     }
     function selectRogue()
     {
@@ -800,12 +970,8 @@ jQuery(document).ready(function($)
             '<select id="chosen_attribute">'+
                 '<option value="Strenght">Strength</option>'+
                 '<option value="Dexterity" selected>Dexterity</option>'+
-                '<option value="Constitution">Constitution</option>'+
-                '<option value="Intelligence">Intelligence</option>'+
-                '<option value="Wisdom">Wisdom</option>'+
-                '<option value="Charisma">Charisma</option>'+
             '</select>'+
-            'Can Choose any ability Score'
+            'Can Choose any ability Score from Racket'
         );
         standardField_class = "dexterity";
         $('#class_specialisation_name').html("Rogue's Racket");
@@ -820,6 +986,14 @@ jQuery(document).ready(function($)
             '<option value="twin_feint">Twin Feint</option>'+
             '<option value="youre_next">You\'re Next</option>'
         );
+        $('#skill_list').append('<b>Rogue</b><br>');
+
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="perception expert" />Perception<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="stealth trained" />Stealth<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="survival trained" />Survival<br>');
+        $('#skill_list').append('<div id="class_skills">');
+        $('#skill_list').append('</div>');
+        addClassSkills(7);
     }
     function selectSorcerer()
     {
@@ -845,6 +1019,12 @@ jQuery(document).ready(function($)
             '<option value="reach_spell">Reach Spell</option>'+
             '<option value="widen_spell">Widen Spell</option>'
         );
+        $('#skill_list').append('<b>Sorcerer</b><br>');
+        $('#skill_list').append('<div id="class_skills"></div>');
+        $('#class_skills').html('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+        $('#class_skills').append('<input type="hidden" name="skills[]" value="intimidation trained" />Intimidation<br>');
+        $('#class_skills').append('<input type="hidden" name="skills[]" value="occultism trained" />Occultism<br>');
+        addClassSkills(2);
     }
     function selectWizard()
     {
@@ -854,7 +1034,7 @@ jQuery(document).ready(function($)
         $('#character_class_specialisation').empty().append('' +
             '<option value="universal_school">Universal School</option>'+
             '<option value="abjuration_school">Abjuration School</option>'+
-            '<option value="conjuration_school">conjuration School</option>'+
+            '<option value="conjuration_school">Conjuration School</option>'+
             '<option value="divination_school">Divination School</option>'+
             '<option value="enchantment_school">Enchantment School</option>'+
             '<option value="evocation_school">Evocation School</option>'+
@@ -880,6 +1060,12 @@ jQuery(document).ready(function($)
                 '<option value="spell substitution">Spell Substitution</option>'+
             '</select>'
         );
+        $('#skill_list').append('<b>Wizard</b><br>');
+        $('#skill_list').append('<div id="class_skills">');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="perception trained" />Perception<br>');
+        $('#skill_list').append('<input type="hidden" name="skills[]" value="arcana trained" />Arcana<br>');
+        $('#skill_list').append('</div>');
+        addClassSkills(2);
     }
 
     //###########################  END CLASS SELECTOR      ####################################
@@ -905,10 +1091,14 @@ jQuery(document).ready(function($)
     }
 
     /*
+            form submission (need extra checks)
             add function to return filled select fields
             (no 2 same skills can be chosen) -> choose another skill instead
 
-            add skills from races and classes to formular, and done!
+
+            add advanced classes overall
+            finish adding backgrounds
+            add bonus information box (?) weapon + armor, saves, hp ? unnötig
      */
 
 });
